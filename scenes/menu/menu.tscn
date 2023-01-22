@@ -100,3 +100,5 @@ margin_top = -24.0
 margin_bottom = 11.0
 custom_fonts/font = ExtResource( 5 )
 text = "Selecione o tempo de jogo"
+
+[connection signal="pressed" from="Control/Button" to="." method="pressionou_botao_play"]

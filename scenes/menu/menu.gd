@@ -6,18 +6,22 @@ onready var opt_dificuldade=get_node(opt_dificuldade_path)
 onready var opt_tempo=get_node(opt_tempo_path)
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	opt_dificuldade.add_item("Aspirante")
-	opt_dificuldade.add_item("Desbravador entusiasta")
-	opt_dificuldade.add_item("Conselheiro")
-	opt_dificuldade.add_item("Lider Master Avançado")
+func _ready(): 
+	for d in Global.DIFICULDADES:
+		opt_dificuldade.add_item(Global.DIFICULDADES[d],d) 
 	
+	opt_dificuldade.select(Global.dificuldade)
 	
-	
-	opt_tempo.add_item("30 minutos")
-	opt_tempo.add_item("1 Hora") 
+	for d in Global.TEMPOS_DE_JOGO:
+		opt_tempo.add_item(Global.TEMPOS_DE_JOGO[d],d) 
+	  
+	opt_tempo.select(Global.tempo_de_jogo)
 	pass # Replace with function body.
 
+
+func pressionou_botao_play():
+	Global.carrega_ilha()
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

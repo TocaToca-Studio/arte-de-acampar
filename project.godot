@@ -11,8 +11,16 @@ config_version=4
 [application]
 
 config/name="arte-de-acampar"
-run/main_scene="res://Ilha.tscn"
+run/main_scene="res://scenes/menu/menu.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Global="*res://Global.gd"
+
+[global]
+
+cena=false
 
 [gui]
 

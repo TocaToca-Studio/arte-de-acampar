@@ -46,8 +46,8 @@ func _physics_process(delta):
 	velocity.y = gravity_speed
 	
 	#jump
-	if Input.is_action_just_pressed("space") and ground_ray.is_colliding():
-		velocity.y = jump_height
+	#if Input.is_action_just_pressed("space") and ground_ray.is_colliding():
+	#	velocity.y = jump_height
 	
 	gravity_speed = move_and_slide(velocity).y
 	
@@ -55,7 +55,6 @@ func _physics_process(delta):
 
 
 func _input(event):
-	
 	if event is InputEventMouseMotion:
 		mouse_motion = event.relative
 
