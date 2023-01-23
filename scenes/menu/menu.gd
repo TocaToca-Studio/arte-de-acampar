@@ -20,6 +20,8 @@ func _ready():
 
 
 func pressionou_botao_play():
+	Global.tempo_de_jogo=opt_tempo.get_index()
+	Global.dificuldade=opt_dificuldade.get_index()
 	Global.carrega_ilha()
 	pass
 

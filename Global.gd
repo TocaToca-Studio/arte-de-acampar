@@ -16,7 +16,7 @@ const TEMPOS_DE_JOGO = {
 
 
 export (int) var dificuldade = 0
-export (int) var tempo_de_jogo = 3
+export (int) var tempo_de_jogo = 30
 
 func _ready():
 	var root = get_tree().root
