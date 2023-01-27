@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://texturas/natureza/Texture1.png" type="Texture" id=1]
 [ext_resource path="res://models/personagens/alice/alice.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://scenes/ilha/Logica.gd" type="Script" id=6]
 [ext_resource path="res://scenes/ilha/hud/tema.tres" type="Theme" id=7]
 [ext_resource path="res://scenes/ilha/HUD.gd" type="Script" id=8]
+[ext_resource path="res://ArvoreDebug.tscn" type="PackedScene" id=9]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -36,6 +37,7 @@ material_override = SubResource( 2 )
 
 [node name="Alice" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9225, 0 )
+velocidade = 6.0
 
 [node name="alice" parent="Alice" instance=ExtResource( 2 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
@@ -128,3 +130,578 @@ text = "06:00"
 
 [node name="Logica" type="Node" parent="."]
 script = ExtResource( 6 )
+
+[node name="Spatial" type="Spatial" parent="."]
+
+[node name="ArvoreDebug" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.433223, 7.22631 )
+
+[node name="ArvoreDebug23" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.433223, 17.167 )
+
+[node name="ArvoreDebug2" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.433223, 28.8296 )
+
+[node name="ArvoreDebug10" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7336, 0.433223, 3.04841 )
+
+[node name="ArvoreDebug9" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7336, 0.433223, 48.9206 )
+
+[node name="ArvoreDebug8" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8742, 0.433223, 48.9206 )
+
+[node name="ArvoreDebug7" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8742, 0.433223, 8.98281 )
+
+[node name="ArvoreDebug6" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.4894, 0.433223, 8.98281 )
+
+[node name="ArvoreDebug5" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.4894, 0.433223, -18.3343 )
+
+[node name="ArvoreDebug4" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6631, 0.433223, -18.3343 )
+
+[node name="ArvoreDebug3" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6631, 0.433223, 28.8296 )
+
+[node name="ArvoreDebug11" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -8.29674, 0.433223, 5.80091 )
+
+[node name="ArvoreDebug12" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 6.78698, 0.433223, 21.2664 )
+
+[node name="ArvoreDebug13" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -2.81386, 0.433223, -5.38259 )
+
+[node name="ArvoreDebug14" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 29.2148, 0.433223, 27.4567 )
+
+[node name="ArvoreDebug15" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 9.45066, 0.433223, 60.0174 )
+
+[node name="ArvoreDebug16" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -18.4345, 0.433223, 18.142 )
+
+[node name="ArvoreDebug17" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -28.8973, 0.433223, 28.3465 )
+
+[node name="ArvoreDebug18" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -47.9706, 0.433223, 8.79052 )
+
+[node name="ArvoreDebug19" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -38.0725, 0.433223, -0.86319 )
+
+[node name="ArvoreDebug20" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -5.14196, 0.433223, 39.8567 )
+
+[node name="ArvoreDebug21" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 6.90098, 0.433223, 39.8567 )
+
+[node name="ArvoreDebug22" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 20.6914, 0.433223, 28.5522 )
+
+[node name="Spatial2" type="Spatial" parent="."]
+transform = Transform( -0.965099, 0, 0.261886, 0, 1, 0, -0.261886, 0, -0.965099, 0, 0, -29.4027 )
+
+[node name="ArvoreDebug" parent="Spatial2" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.433223, 7.22631 )
+
+[node name="ArvoreDebug23" parent="Spatial2" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.433223, 17.167 )
+
+[node name="ArvoreDebug2" parent="Spatial2" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.433223, 28.8296 )
+
+[node name="ArvoreDebug10" parent="Spatial2" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7336, 0.433223, 3.04841 )
+
+[node name="ArvoreDebug9" parent="Spatial2" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7336, 0.433223, 48.9206 )
+
+[node name="ArvoreDebug8" parent="Spatial2" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8742, 0.433223, 48.9206 )
+
+[node name="ArvoreDebug7" parent="Spatial2" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8742, 0.433223, 8.98281 )
+
+[node name="ArvoreDebug6" parent="Spatial2" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.4894, 0.433223, 8.98281 )
+
+[node name="ArvoreDebug5" parent="Spatial2" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.4894, 0.433223, -18.3343 )
+
+[node name="ArvoreDebug4" parent="Spatial2" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6631, 0.433223, -18.3343 )
+
+[node name="ArvoreDebug3" parent="Spatial2" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6631, 0.433223, 28.8296 )
+
+[node name="ArvoreDebug11" parent="Spatial2" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -8.29674, 0.433223, 5.80091 )
+
+[node name="ArvoreDebug12" parent="Spatial2" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 6.78698, 0.433223, 21.2664 )
+
+[node name="ArvoreDebug13" parent="Spatial2" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -2.81386, 0.433223, -5.38259 )
+
+[node name="ArvoreDebug14" parent="Spatial2" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 29.2148, 0.433223, 27.4567 )
+
+[node name="ArvoreDebug15" parent="Spatial2" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 9.45066, 0.433223, 60.0174 )
+
+[node name="ArvoreDebug16" parent="Spatial2" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -18.4345, 0.433223, 18.142 )
+
+[node name="ArvoreDebug17" parent="Spatial2" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -28.8973, 0.433223, 28.3465 )
+
+[node name="ArvoreDebug18" parent="Spatial2" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -47.9706, 0.433223, 8.79052 )
+
+[node name="ArvoreDebug19" parent="Spatial2" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -38.0725, 0.433223, -0.86319 )
+
+[node name="ArvoreDebug20" parent="Spatial2" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -5.14196, 0.433223, 39.8567 )
+
+[node name="ArvoreDebug21" parent="Spatial2" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 6.90098, 0.433223, 39.8567 )
+
+[node name="ArvoreDebug22" parent="Spatial2" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 20.6914, 0.433223, 28.5522 )
+
+[node name="Spatial3" type="Spatial" parent="."]
+transform = Transform( -0.976728, 0, -0.21448, 0, 1, 0, 0.21448, 0, -0.976728, 84.2565, 0, -28.5108 )
+
+[node name="ArvoreDebug" parent="Spatial3" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.433223, 7.22631 )
+
+[node name="ArvoreDebug23" parent="Spatial3" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.433223, 17.167 )
+
+[node name="ArvoreDebug2" parent="Spatial3" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.433223, 28.8296 )
+
+[node name="ArvoreDebug10" parent="Spatial3" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7336, 0.433223, 3.04841 )
+
+[node name="ArvoreDebug9" parent="Spatial3" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7336, 0.433223, 48.9206 )
+
+[node name="ArvoreDebug8" parent="Spatial3" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8742, 0.433223, 48.9206 )
+
+[node name="ArvoreDebug7" parent="Spatial3" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8742, 0.433223, 8.98281 )
+
+[node name="ArvoreDebug6" parent="Spatial3" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.4894, 0.433223, 8.98281 )
+
+[node name="ArvoreDebug5" parent="Spatial3" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.4894, 0.433223, -18.3343 )
+
+[node name="ArvoreDebug4" parent="Spatial3" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6631, 0.433223, -18.3343 )
+
+[node name="ArvoreDebug3" parent="Spatial3" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6631, 0.433223, 28.8296 )
+
+[node name="ArvoreDebug11" parent="Spatial3" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -8.29674, 0.433223, 5.80091 )
+
+[node name="ArvoreDebug12" parent="Spatial3" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 6.78698, 0.433223, 21.2664 )
+
+[node name="ArvoreDebug13" parent="Spatial3" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -2.81386, 0.433223, -5.38259 )
+
+[node name="ArvoreDebug14" parent="Spatial3" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 29.2148, 0.433223, 27.4567 )
+
+[node name="ArvoreDebug15" parent="Spatial3" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 9.45066, 0.433223, 60.0174 )
+
+[node name="ArvoreDebug16" parent="Spatial3" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -18.4345, 0.433223, 18.142 )
+
+[node name="ArvoreDebug17" parent="Spatial3" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -28.8973, 0.433223, 28.3465 )
+
+[node name="ArvoreDebug18" parent="Spatial3" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -47.9706, 0.433223, 8.79052 )
+
+[node name="ArvoreDebug19" parent="Spatial3" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -38.0725, 0.433223, -0.86319 )
+
+[node name="ArvoreDebug20" parent="Spatial3" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -5.14196, 0.433223, 39.8567 )
+
+[node name="ArvoreDebug21" parent="Spatial3" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 6.90098, 0.433223, 39.8567 )
+
+[node name="ArvoreDebug22" parent="Spatial3" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 20.6914, 0.433223, 28.5522 )
+
+[node name="Spatial4" type="Spatial" parent="."]
+transform = Transform( 0.998809, 0, -0.0487975, 0, 1, 0, 0.0487975, 0, 0.998809, 90.5628, 0, 0.207666 )
+
+[node name="ArvoreDebug" parent="Spatial4" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.433223, 7.22631 )
+
+[node name="ArvoreDebug23" parent="Spatial4" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.433223, 17.167 )
+
+[node name="ArvoreDebug2" parent="Spatial4" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.433223, 28.8296 )
+
+[node name="ArvoreDebug10" parent="Spatial4" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7336, 0.433223, 3.04841 )
+
+[node name="ArvoreDebug9" parent="Spatial4" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7336, 0.433223, 48.9206 )
+
+[node name="ArvoreDebug8" parent="Spatial4" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8742, 0.433223, 48.9206 )
+
+[node name="ArvoreDebug7" parent="Spatial4" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8742, 0.433223, 8.98281 )
+
+[node name="ArvoreDebug6" parent="Spatial4" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.4894, 0.433223, 8.98281 )
+
+[node name="ArvoreDebug5" parent="Spatial4" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.4894, 0.433223, -18.3343 )
+
+[node name="ArvoreDebug4" parent="Spatial4" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6631, 0.433223, -18.3343 )
+
+[node name="ArvoreDebug3" parent="Spatial4" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6631, 0.433223, 28.8296 )
+
+[node name="ArvoreDebug11" parent="Spatial4" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -8.29674, 0.433223, 5.80091 )
+
+[node name="ArvoreDebug12" parent="Spatial4" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 6.78698, 0.433223, 21.2664 )
+
+[node name="ArvoreDebug13" parent="Spatial4" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -2.81386, 0.433223, -5.38259 )
+
+[node name="ArvoreDebug14" parent="Spatial4" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 29.2148, 0.433223, 27.4567 )
+
+[node name="ArvoreDebug15" parent="Spatial4" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 9.45066, 0.433223, 60.0174 )
+
+[node name="ArvoreDebug16" parent="Spatial4" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -18.4345, 0.433223, 18.142 )
+
+[node name="ArvoreDebug17" parent="Spatial4" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -28.8973, 0.433223, 28.3465 )
+
+[node name="ArvoreDebug18" parent="Spatial4" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -47.9706, 0.433223, 8.79052 )
+
+[node name="ArvoreDebug19" parent="Spatial4" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -38.0725, 0.433223, -0.86319 )
+
+[node name="ArvoreDebug20" parent="Spatial4" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -5.14196, 0.433223, 39.8567 )
+
+[node name="ArvoreDebug21" parent="Spatial4" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 6.90098, 0.433223, 39.8567 )
+
+[node name="ArvoreDebug22" parent="Spatial4" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 20.6914, 0.433223, 28.5522 )
+
+[node name="Spatial5" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 160.483 )
+
+[node name="ArvoreDebug" parent="Spatial5" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.433223, 7.22631 )
+
+[node name="ArvoreDebug23" parent="Spatial5" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.433223, 17.167 )
+
+[node name="ArvoreDebug2" parent="Spatial5" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.433223, 28.8296 )
+
+[node name="ArvoreDebug10" parent="Spatial5" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7336, 0.433223, 3.04841 )
+
+[node name="ArvoreDebug9" parent="Spatial5" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7336, 0.433223, 48.9206 )
+
+[node name="ArvoreDebug8" parent="Spatial5" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8742, 0.433223, 48.9206 )
+
+[node name="ArvoreDebug7" parent="Spatial5" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8742, 0.433223, 8.98281 )
+
+[node name="ArvoreDebug6" parent="Spatial5" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.4894, 0.433223, 8.98281 )
+
+[node name="ArvoreDebug5" parent="Spatial5" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.4894, 0.433223, -18.3343 )
+
+[node name="ArvoreDebug4" parent="Spatial5" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6631, 0.433223, -18.3343 )
+
+[node name="ArvoreDebug3" parent="Spatial5" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6631, 0.433223, 28.8296 )
+
+[node name="ArvoreDebug11" parent="Spatial5" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -8.29674, 0.433223, 5.80091 )
+
+[node name="ArvoreDebug12" parent="Spatial5" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 6.78698, 0.433223, 21.2664 )
+
+[node name="ArvoreDebug13" parent="Spatial5" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -2.81386, 0.433223, -5.38259 )
+
+[node name="ArvoreDebug14" parent="Spatial5" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 29.2148, 0.433223, 27.4567 )
+
+[node name="ArvoreDebug15" parent="Spatial5" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 9.45066, 0.433223, 60.0174 )
+
+[node name="ArvoreDebug16" parent="Spatial5" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -18.4345, 0.433223, 18.142 )
+
+[node name="ArvoreDebug17" parent="Spatial5" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -28.8973, 0.433223, 28.3465 )
+
+[node name="ArvoreDebug18" parent="Spatial5" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -47.9706, 0.433223, 8.79052 )
+
+[node name="ArvoreDebug19" parent="Spatial5" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -38.0725, 0.433223, -0.86319 )
+
+[node name="ArvoreDebug20" parent="Spatial5" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -5.14196, 0.433223, 39.8567 )
+
+[node name="ArvoreDebug21" parent="Spatial5" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 6.90098, 0.433223, 39.8567 )
+
+[node name="ArvoreDebug22" parent="Spatial5" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 20.6914, 0.433223, 28.5522 )
+
+[node name="Spatial6" type="Spatial" parent="."]
+transform = Transform( -0.965099, 0, 0.261886, 0, 1, 0, -0.261886, 0, -0.965099, 0, 0, 131.081 )
+
+[node name="ArvoreDebug" parent="Spatial6" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.433223, 7.22631 )
+
+[node name="ArvoreDebug23" parent="Spatial6" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.433223, 17.167 )
+
+[node name="ArvoreDebug2" parent="Spatial6" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.433223, 28.8296 )
+
+[node name="ArvoreDebug10" parent="Spatial6" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7336, 0.433223, 3.04841 )
+
+[node name="ArvoreDebug9" parent="Spatial6" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7336, 0.433223, 48.9206 )
+
+[node name="ArvoreDebug8" parent="Spatial6" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8742, 0.433223, 48.9206 )
+
+[node name="ArvoreDebug7" parent="Spatial6" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8742, 0.433223, 8.98281 )
+
+[node name="ArvoreDebug6" parent="Spatial6" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.4894, 0.433223, 8.98281 )
+
+[node name="ArvoreDebug5" parent="Spatial6" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.4894, 0.433223, -18.3343 )
+
+[node name="ArvoreDebug4" parent="Spatial6" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6631, 0.433223, -18.3343 )
+
+[node name="ArvoreDebug3" parent="Spatial6" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6631, 0.433223, 28.8296 )
+
+[node name="ArvoreDebug11" parent="Spatial6" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -8.29674, 0.433223, 5.80091 )
+
+[node name="ArvoreDebug12" parent="Spatial6" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 6.78698, 0.433223, 21.2664 )
+
+[node name="ArvoreDebug13" parent="Spatial6" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -2.81386, 0.433223, -5.38259 )
+
+[node name="ArvoreDebug14" parent="Spatial6" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 29.2148, 0.433223, 27.4567 )
+
+[node name="ArvoreDebug15" parent="Spatial6" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 9.45066, 0.433223, 60.0174 )
+
+[node name="ArvoreDebug16" parent="Spatial6" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -18.4345, 0.433223, 18.142 )
+
+[node name="ArvoreDebug17" parent="Spatial6" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -28.8973, 0.433223, 28.3465 )
+
+[node name="ArvoreDebug18" parent="Spatial6" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -47.9706, 0.433223, 8.79052 )
+
+[node name="ArvoreDebug19" parent="Spatial6" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -38.0725, 0.433223, -0.86319 )
+
+[node name="ArvoreDebug20" parent="Spatial6" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -5.14196, 0.433223, 39.8567 )
+
+[node name="ArvoreDebug21" parent="Spatial6" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 6.90098, 0.433223, 39.8567 )
+
+[node name="ArvoreDebug22" parent="Spatial6" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 20.6914, 0.433223, 28.5522 )
+
+[node name="Spatial7" type="Spatial" parent="."]
+transform = Transform( -0.976728, 0, -0.21448, 0, 1, 0, 0.21448, 0, -0.976728, 84.2565, 0, 131.972 )
+
+[node name="ArvoreDebug" parent="Spatial7" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.433223, 7.22631 )
+
+[node name="ArvoreDebug23" parent="Spatial7" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.433223, 17.167 )
+
+[node name="ArvoreDebug2" parent="Spatial7" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.433223, 28.8296 )
+
+[node name="ArvoreDebug10" parent="Spatial7" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7336, 0.433223, 3.04841 )
+
+[node name="ArvoreDebug9" parent="Spatial7" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7336, 0.433223, 48.9206 )
+
+[node name="ArvoreDebug8" parent="Spatial7" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8742, 0.433223, 48.9206 )
+
+[node name="ArvoreDebug7" parent="Spatial7" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8742, 0.433223, 8.98281 )
+
+[node name="ArvoreDebug6" parent="Spatial7" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.4894, 0.433223, 8.98281 )
+
+[node name="ArvoreDebug5" parent="Spatial7" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.4894, 0.433223, -18.3343 )
+
+[node name="ArvoreDebug4" parent="Spatial7" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6631, 0.433223, -18.3343 )
+
+[node name="ArvoreDebug3" parent="Spatial7" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6631, 0.433223, 28.8296 )
+
+[node name="ArvoreDebug11" parent="Spatial7" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -8.29674, 0.433223, 5.80091 )
+
+[node name="ArvoreDebug12" parent="Spatial7" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 6.78698, 0.433223, 21.2664 )
+
+[node name="ArvoreDebug13" parent="Spatial7" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -2.81386, 0.433223, -5.38259 )
+
+[node name="ArvoreDebug14" parent="Spatial7" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 29.2148, 0.433223, 27.4567 )
+
+[node name="ArvoreDebug15" parent="Spatial7" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 9.45066, 0.433223, 60.0174 )
+
+[node name="ArvoreDebug16" parent="Spatial7" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -18.4345, 0.433223, 18.142 )
+
+[node name="ArvoreDebug17" parent="Spatial7" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -28.8973, 0.433223, 28.3465 )
+
+[node name="ArvoreDebug18" parent="Spatial7" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -47.9706, 0.433223, 8.79052 )
+
+[node name="ArvoreDebug19" parent="Spatial7" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -38.0725, 0.433223, -0.86319 )
+
+[node name="ArvoreDebug20" parent="Spatial7" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -5.14196, 0.433223, 39.8567 )
+
+[node name="ArvoreDebug21" parent="Spatial7" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 6.90098, 0.433223, 39.8567 )
+
+[node name="ArvoreDebug22" parent="Spatial7" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 20.6914, 0.433223, 28.5522 )
+
+[node name="Spatial8" type="Spatial" parent="."]
+transform = Transform( 0.998809, 0, -0.0487975, 0, 1, 0, 0.0487975, 0, 0.998809, 90.5628, 0, 160.691 )
+
+[node name="ArvoreDebug" parent="Spatial8" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.433223, 7.22631 )
+
+[node name="ArvoreDebug23" parent="Spatial8" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.433223, 17.167 )
+
+[node name="ArvoreDebug2" parent="Spatial8" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.433223, 28.8296 )
+
+[node name="ArvoreDebug10" parent="Spatial8" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7336, 0.433223, 3.04841 )
+
+[node name="ArvoreDebug9" parent="Spatial8" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7336, 0.433223, 48.9206 )
+
+[node name="ArvoreDebug8" parent="Spatial8" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8742, 0.433223, 48.9206 )
+
+[node name="ArvoreDebug7" parent="Spatial8" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8742, 0.433223, 8.98281 )
+
+[node name="ArvoreDebug6" parent="Spatial8" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.4894, 0.433223, 8.98281 )
+
+[node name="ArvoreDebug5" parent="Spatial8" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.4894, 0.433223, -18.3343 )
+
+[node name="ArvoreDebug4" parent="Spatial8" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6631, 0.433223, -18.3343 )
+
+[node name="ArvoreDebug3" parent="Spatial8" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6631, 0.433223, 28.8296 )
+
+[node name="ArvoreDebug11" parent="Spatial8" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -8.29674, 0.433223, 5.80091 )
+
+[node name="ArvoreDebug12" parent="Spatial8" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 6.78698, 0.433223, 21.2664 )
+
+[node name="ArvoreDebug13" parent="Spatial8" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -2.81386, 0.433223, -5.38259 )
+
+[node name="ArvoreDebug14" parent="Spatial8" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 29.2148, 0.433223, 27.4567 )
+
+[node name="ArvoreDebug15" parent="Spatial8" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 9.45066, 0.433223, 60.0174 )
+
+[node name="ArvoreDebug16" parent="Spatial8" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -18.4345, 0.433223, 18.142 )
+
+[node name="ArvoreDebug17" parent="Spatial8" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -28.8973, 0.433223, 28.3465 )
+
+[node name="ArvoreDebug18" parent="Spatial8" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -47.9706, 0.433223, 8.79052 )
+
+[node name="ArvoreDebug19" parent="Spatial8" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -38.0725, 0.433223, -0.86319 )
+
+[node name="ArvoreDebug20" parent="Spatial8" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, -5.14196, 0.433223, 39.8567 )
+
+[node name="ArvoreDebug21" parent="Spatial8" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 6.90098, 0.433223, 39.8567 )
+
+[node name="ArvoreDebug22" parent="Spatial8" instance=ExtResource( 9 )]
+transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 20.6914, 0.433223, 28.5522 )
