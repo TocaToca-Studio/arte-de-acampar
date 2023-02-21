@@ -12,10 +12,25 @@ var player_speed = 0
 export (bool) var andando=false
 export (float) var velocidade=3
 
+export (String) var animacao_andando
+
+
+export (NodePath) var animation_path 
+onready var animation=get_node(animation_path)
+
 func pular():
 	pular=true
  
 var pulou_andando=false
+
+
+func _process(delta):
+	if(andando):
+		if(not animation.is_playing()): animation.play(animacao_andando)
+	else :
+		animation.stop()
+
+
 
 func _physics_process(delta): 
 	#gravity

@@ -1,0 +1,48 @@
+# Written by MakeHuman 1.2.0 final
+version v1.2.0
+camera 354.0 296.0 -0.20626807045012532 0.16305566710486497 -0.753294855559408 1.225
+modifier torso/torso-scale-depth-decr|incr -0.206000
+modifier torso/torso-trans-in|out -0.080000
+modifier torso/torso-vshape-decr|incr -0.048000
+modifier torso/torso-muscle-dorsi-decr|incr -0.174000
+modifier torso/torso-muscle-pectoral-decr|incr 0.158000
+modifier hip/hip-scale-depth-decr|incr 0.174000
+modifier hip/hip-scale-horiz-decr|incr 0.254000
+modifier hip/hip-scale-vert-decr|incr -0.238000
+modifier stomach/stomach-navel-in|out -0.080000
+modifier stomach/stomach-tone-decr|incr 0.428000
+modifier stomach/stomach-pregnant-decr|incr -0.126000
+modifier stomach/stomach-navel-down|up -0.158000
+modifier buttocks/buttocks-volume-decr|incr 1.000000
+modifier pelvis/pelvis-tone-decr|incr 0.126000
+modifier armslegs/r-hand-scale-decr|incr -0.112000
+modifier breast/BreastSize 0.881000
+modifier breast/BreastFirmness 1.000000
+modifier breast/breast-trans-down|up 1.000000
+modifier breast/breast-dist-decr|incr -0.318000
+modifier breast/breast-point-decr|incr -1.000000
+modifier breast/breast-volume-vert-down|up 0.904000
+modifier breast/nipple-size-decr|incr 0.682000
+modifier breast/nipple-point-decr|incr -1.000000
+modifier macrodetails/Gender 0.000000
+modifier macrodetails/Age 0.317000
+modifier macrodetails/African 0.110782
+modifier macrodetails/Asian 0.310218
+modifier macrodetails/Caucasian 0.579000
+modifier macrodetails-universal/Muscle 0.746000
+modifier macrodetails-universal/Weight 0.500000
+modifier macrodetails-height/Height 0.667000
+modifier macrodetails-proportions/BodyProportions 0.810000
+proxy female1605 e7cb8171-845e-42b0-a109-e6e8c8a61f9d
+hair ponytail01 44e0340e-c7a6-4d22-814c-0632968d2dde
+eyelashes eyelashes02 04a0718e-aaa4-4480-a013-ad51703bef6b
+skeleton default_no_toes.mhskel
+eyebrows eyebrow008 79ea307f-a942-40dd-bf50-bbaa41f02034
+eyes Low-Poly 1cc97a30-85a1-42e6-a9f7-b3e753732baa
+clothesHideFaces True
+skinMaterial skins/young_caucasian_female/young_caucasian_female.mhmat
+material ponytail01 44e0340e-c7a6-4d22-814c-0632968d2dde ponytail01.mhmat
+material Low-Poly 1cc97a30-85a1-42e6-a9f7-b3e753732baa eyes/materials/lightblue.mhmat
+material eyebrow008 79ea307f-a942-40dd-bf50-bbaa41f02034 eyebrow008.mhmat
+material eyelashes02 04a0718e-aaa4-4480-a013-ad51703bef6b eyelashes02.mhmat
+subdivide False
