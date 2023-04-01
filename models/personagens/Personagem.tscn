@@ -1,6 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://scenes/ilha/Personagem.gd" type="Script" id=1]
+[ext_resource path="res://scripts/gameplay/Personagem.gd" type="Script" id=1]
+
 
 [sub_resource type="CapsuleShape" id=3]
 margin = 0.41
