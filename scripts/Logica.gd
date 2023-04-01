@@ -3,8 +3,10 @@ extends Node
 const DIAS_VIRTUAIS = 3
 
 ## quanto menor mais rapido
-const FATOR_FOME = 180.0   
-const FATOR_SEDE = 40.0   
+var fator_fome = 250.0   
+var fator_sede = 180.0    
+var fator_stamina = 50.0  
+var fator_recupera_stamina = 70.0
 
 export (float) var segundosRestantes=0.0
 export (int) var hora=6
@@ -18,7 +20,16 @@ export (float) var stamina=1.0
 export (float) var fome=1.0
 export (float) var sede=1.0
 
+# intensidade do esforço é usada para calcular o gasto da stamina constante
+export (float) var esforco=0.0
 
+ 
+
+func esforcar(fat):
+	stamina-=(1/fator_stamina)*fat
+
+func is_cansado():
+	return stamina<0.3
  
 
 func _ready():
@@ -36,16 +47,24 @@ func atualiza_relogio():
 	dia=hora/24
 	hora=hora%24 
 	
+  
+
 func _process(delta):
 	segundosRestantes-=delta
 	atualiza_relogio() 
 	
-	fome-=delta/FATOR_FOME
-	sede-=delta/FATOR_SEDE
+	fome-=delta/fator_fome
+	sede-=delta/fator_sede
+	stamina-=(delta/fator_stamina)*esforco
+	stamina+=delta/fator_recupera_stamina
 
+	stamina=clamp(stamina,0.0,1.0) 
+	fome=clamp(fome,0.0,1.0)
+	sede=clamp(sede,0.0,1.0)
+	saude=clamp(saude,0.0,1.0)
 
 	# se alguma variavel desta for menor do que zero é game over
-	for v in [saude,stamina,fome,sede,segundosRestantes]:
+	for v in [saude,fome,sede,segundosRestantes]:
 		if v<=0:
 			Global.gameover()
 			pass

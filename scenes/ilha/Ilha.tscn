@@ -755,6 +755,7 @@ anims/Alic09_01003 = SubResource( 6 )
 [node name="EixoCamera" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.92294, 0 )
 script = ExtResource( 3 )
+path_logica = NodePath("../Logica")
 alice_path = NodePath("../Alice")
 
 [node name="offset" type="Spatial" parent="EixoCamera"]

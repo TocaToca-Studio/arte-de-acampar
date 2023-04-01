@@ -1,9 +1,13 @@
 extends Spatial
 
+export (NodePath) var path_logica
+onready var logica=get_node(path_logica)
+
+
 export (NodePath) var alice_path
 onready var alice=get_node(alice_path)
 
-export (float) var velocidade=2
+export (float) var velocidade=2.0
 
 export(float,0.1,1.0) var sensitivity_x = 0.5
 export(float,0.1,1.0) var sensitivity_y = 0.4
@@ -20,7 +24,8 @@ func _input(event):
 
 
 func _process(delta):  
-	if Input.is_action_just_pressed("space"):
+	if Input.is_action_just_pressed("space") and not logica.is_cansado():
+		logica.esforcar(3)
 		alice.pular()
 		
 	alice.andando=Input.is_key_pressed(KEY_W)
