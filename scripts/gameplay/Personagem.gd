@@ -24,7 +24,7 @@ func pular():
 var pulou_andando=false
 
 
-func _process(delta):
+func _process(_delta):
 	if(andando):
 		if(not animation.is_playing()): animation.play(animacao_andando)
 	else :

@@ -14,6 +14,48 @@ const TEMPOS_DE_JOGO = {
 	60 : "1 hora"
 }
  
+const INVENTARIOS = {
+	0 : { # aspirante
+		"lanterna": {
+			"quantidade":1
+		},
+		"faca": {
+			"quantidade":1
+		},
+		"cantil": {
+			"quantidade":1,
+			"cheio":true
+		},
+		"fruta": {
+			"quantidade":10
+		}
+	},
+	1 : { # Desbravador entusiasta
+		"lanterna": {
+			"quantidade":1
+		},
+		"faca": {
+			"quantidade":1
+		},
+		"cantil": {
+			"quantidade":1,
+			"cheio":true
+		},
+		"fruta": {
+			"quantidade":6
+		}
+	},
+	2 : { # Conselheiro
+		"faca": {
+			"quantidade":1
+		},  
+		"cantil": {
+			"quantidade":1,
+			"cheio":true
+		},
+	},
+	3 : {  } # lider master tem que se virar
+}
 export (int) var dificuldade = 0
 export (int) var tempo_de_jogo = 30
 export (bool) var game_over = false
@@ -185,6 +227,14 @@ const ITENS = {
 	},
 	
 	# FERRAMENTAS 
+	"cantil": {
+		"nome":"Cantil de água",
+		"is_construtivel":true
+	},
+	"lanterna" : {
+		"nome":"Lanterna",
+		"is_ferramenta": true
+	},
 	"faca" : { 
 		"nome": "Faca",
 		"is_ferramenta": true
@@ -236,6 +286,7 @@ const ITENS = {
 		"nome": "Carne",
 		"is_comestivel":true
 	}, 
+	
 	## MEU SONHO É INSERIR ARCO E FLEXA NESSE JOGO
 	## MAS VAMOS SER REALISTA É BEM IMPROVAVEL
 	# POR AMOR AS CAUSAS PERDIDAS TALVEZ CONSIGO. 

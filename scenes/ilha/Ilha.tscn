@@ -907,6 +907,7 @@ text = "--"
 margin_top = 300.0
 margin_right = 500.0
 script = ExtResource( 13 )
+node_logica = NodePath("../../Logica")
 
 [node name="slot0" type="Label" parent="HUD/inventario"]
 margin_right = 103.0
@@ -999,6 +1000,7 @@ text = "--"
 
 [node name="Logica" type="Node" parent="."]
 script = ExtResource( 6 )
+path_hud_inventario = NodePath("../HUD/inventario")
 
 [node name="Spatial" type="Spatial" parent="."]
 

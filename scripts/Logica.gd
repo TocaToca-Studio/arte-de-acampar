@@ -22,18 +22,25 @@ export (float) var sede=1.0
 
 # intensidade do esforço é usada para calcular o gasto da stamina constante
 export (float) var esforco=0.0
-
  
+var inventario=Global.INVENTARIOS[Global.dificuldade]
+
+export (NodePath) var path_hud_inventario
+onready var hud_inventario=get_node(path_hud_inventario)
+
 
 func esforcar(fat):
 	stamina-=(1/fator_stamina)*fat
 
 func is_cansado():
 	return stamina<0.3
- 
+  
 
 func _ready():
 	segundosRestantes=Global.tempo_de_jogo*60
+	## carrega inventario de acordo com a dificuldade
+	inventario= Global.INVENTARIOS[Global.dificuldade]
+	hud_inventario.atualiza()
 	
 func atualiza_relogio():
 	var minutos_totais=DIAS_VIRTUAIS*24*60
@@ -46,8 +53,7 @@ func atualiza_relogio():
 	hora=int(minutos_virtuais_passados/60.0);
 	dia=hora/24
 	hora=hora%24 
-	
-  
+	 
 
 func _process(delta):
 	segundosRestantes-=delta

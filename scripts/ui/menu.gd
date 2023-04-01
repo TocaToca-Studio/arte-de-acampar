@@ -26,13 +26,14 @@ func _ready():
 	for d in Global.TEMPOS_DE_JOGO:
 		opt_tempo.add_item(Global.TEMPOS_DE_JOGO[d],d) 
 	  
-	opt_tempo.select(Global.tempo_de_jogo)
+	#opt_tempo.select(Global.tempo_de_jogo)
 	pass # Replace with function body.
 
 
 func pressionou_botao_play():
-	Global.tempo_de_jogo=opt_tempo.get_index()
-	Global.dificuldade=opt_dificuldade.get_index()
+	Global.tempo_de_jogo=opt_tempo.get_selected_id()
+	Global.dificuldade=opt_dificuldade.get_selected_id()
+	print("dificuldade selecionada "+str(opt_dificuldade.get_selected_id()))
 	Global.carrega_ilha()
 	pass
 
@@ -41,7 +42,6 @@ func pressinou_botao_voltar_ao_menu():
 	
 	div_gameover.set_visible(Global.game_over)
 	div_menu.set_visible(!Global.game_over) 
-	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
