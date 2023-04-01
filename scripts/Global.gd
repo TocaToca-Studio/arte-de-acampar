@@ -17,6 +17,7 @@ const TEMPOS_DE_JOGO = {
 
 export (int) var dificuldade = 0
 export (int) var tempo_de_jogo = 30
+export (bool) var game_over = false
 
 func _ready():
 	var root = get_tree().root
@@ -40,6 +41,11 @@ func solicitar_carregamento_de_cena(path):
 func carrega_ilha(): 
 	solicitar_carregamento_de_cena("res://scenes/ilha/Ilha.tscn")
 	
+
+func gameover():
+	game_over=true
+	solicitar_carregamento_de_cena("res://scenes/menu/menu.tscn")
+
 func _carregar_cena(path):
 	# It is now safe to remove the current scene
 	cena_atual.free()

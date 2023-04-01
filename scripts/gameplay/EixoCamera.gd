@@ -22,6 +22,7 @@ func _input(event):
 func _process(delta):  
 	if Input.is_action_just_pressed("space"):
 		alice.pular()
+		Global.gameover();
 	  
 	alice.andando=Input.is_key_pressed(KEY_W)
 		
@@ -32,7 +33,11 @@ func _process(delta):
 	#player_hand.rotation.x = lerp(player_hand.rotation.x, player_cam.rotation.x, 0.2)
 	mouse_motion = Vector2()
 	
+	
 	translation=translation.linear_interpolate(alice.translation,delta*velocidade)
+	translation.x=alice.translation.x
+	translation.z=alice.translation.z
+
 	if(alice.andando):
 		alice.transform=alice.transform.interpolate_with(transform,delta*velocidade*2)
 	pass

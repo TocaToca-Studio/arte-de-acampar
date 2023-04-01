@@ -19,8 +19,10 @@ font_data = SubResource( 2 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 3 )
-opt_dificuldade_path = NodePath("Control/opt_dificuldade")
-opt_tempo_path = NodePath("Control/opt_tempo")
+opt_dificuldade_path = NodePath("div_menu/opt_dificuldade")
+opt_tempo_path = NodePath("div_menu/opt_tempo")
+control_div_menu = NodePath("div_menu")
+control_div_gameover = NodePath("div_gameover")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
@@ -41,7 +43,8 @@ custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "Arte de Acampar"
 
-[node name="Control" type="Control" parent="."]
+[node name="div_menu" type="Control" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -51,13 +54,13 @@ margin_top = -336.0
 margin_right = 200.0
 margin_bottom = -64.0
 
-[node name="ColorRect" type="ColorRect" parent="Control"]
+[node name="ColorRect" type="ColorRect" parent="div_menu"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0.705882 )
 
-[node name="Button" type="Button" parent="Control"]
+[node name="Button" type="Button" parent="div_menu"]
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -65,7 +68,7 @@ margin_top = -41.0
 custom_fonts/font = ExtResource( 2 )
 text = "Iniciar partida"
 
-[node name="opt_dificuldade" type="OptionButton" parent="Control"]
+[node name="opt_dificuldade" type="OptionButton" parent="div_menu"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -200.0
@@ -76,14 +79,14 @@ rect_pivot_offset = Vector2( 144, 32 )
 custom_fonts/font = ExtResource( 4 )
 text = "Aspirante"
 
-[node name="Label" type="Label" parent="Control/opt_dificuldade"]
+[node name="Label" type="Label" parent="div_menu/opt_dificuldade"]
 anchor_right = 1.0
 margin_top = -24.0
 margin_bottom = 11.0
 custom_fonts/font = ExtResource( 5 )
 text = "Selecione o tempo de jogo"
 
-[node name="opt_tempo" type="OptionButton" parent="Control"]
+[node name="opt_tempo" type="OptionButton" parent="div_menu"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -200.0
@@ -94,11 +97,47 @@ rect_pivot_offset = Vector2( 144, 32 )
 custom_fonts/font = ExtResource( 4 )
 text = "30 minutos"
 
-[node name="Label" type="Label" parent="Control/opt_tempo"]
+[node name="Label" type="Label" parent="div_menu/opt_tempo"]
 anchor_right = 1.0
 margin_top = -24.0
 margin_bottom = 11.0
 custom_fonts/font = ExtResource( 5 )
 text = "Selecione o tempo de jogo"
 
-[connection signal="pressed" from="Control/Button" to="." method="pressionou_botao_play"]
+[node name="div_gameover" type="Control" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -200.0
+margin_top = -336.0
+margin_right = 200.0
+margin_bottom = -64.0
+
+[node name="ColorRect" type="ColorRect" parent="div_gameover"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.705882 )
+
+[node name="Button" type="Button" parent="div_gameover"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -41.0
+custom_fonts/font = ExtResource( 2 )
+text = "Voltar ao menu"
+
+[node name="Label" type="Label" parent="div_gameover"]
+anchor_right = 1.0
+margin_left = -4.0
+margin_top = -13.0
+margin_right = -4.0
+margin_bottom = 22.0
+custom_fonts/font = ExtResource( 5 )
+text = "Game Over!!!!"
+align = 1
+
+[connection signal="pressed" from="div_menu/Button" to="." method="pressionou_botao_play"]
+[connection signal="pressed" from="div_gameover/Button" to="." method="pressinou_botao_voltar_ao_menu"]

@@ -53,7 +53,10 @@ func _physics_process(delta):
 	else:
 		if pulou_andando: mov=velocidade
 		
-	player_speed=lerp(player_speed, mov,delta*3)
+	# a interpolacao simula a aceleração e desaceleração
+	# na movimentação do personagem existe um efeito interessante,
+	# ele tem que desacelerar muito mais rapido do que acelerar
+	player_speed=lerp(player_speed, mov,delta*10)
 	
 	velocity+=-(get_global_transform().basis.z.normalized())*player_speed
 		

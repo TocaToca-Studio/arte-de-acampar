@@ -2,12 +2,13 @@ extends Node
 
 const DIAS_VIRTUAIS=3
 
-export (float) var segundosRestantes=0
+export (float) var segundosRestantes=0.0
 export (int) var hora=6
 export (int) var minutos=0 
 export (int) var dia=1
 
-export (float) var debug=0
+export (float) var debug=0.0
+
 func acabou_tempo():
 	print("acabou o tempo!!!")
 
