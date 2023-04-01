@@ -13,7 +13,6 @@
 [ext_resource path="res://models/personagens/alice/Alicemhx2_Ponytail01_Ponytail01.material" type="Material" id=11]
 [ext_resource path="res://models/personagens/alice/Alicemhx2_Female1605_Young_caucasian_male_detailed.material" type="Material" id=12]
 
-
 [sub_resource type="BoxShape" id=1]
 
 [sub_resource type="SpatialMaterial" id=2]
@@ -774,7 +773,7 @@ anchor_bottom = 1.0
 margin_right = -1024.0
 margin_bottom = -600.0
 script = ExtResource( 8 )
-node_relogio = NodePath("../Logica")
+node_logica = NodePath("../Logica")
 
 [node name="relogio" type="Control" parent="HUD"]
 margin_right = 40.0
@@ -838,6 +837,69 @@ margin_right = 238.0
 margin_bottom = 24.0
 theme = ExtResource( 7 )
 text = "06:00"
+
+[node name="status" type="Control" parent="HUD"]
+margin_top = 120.0
+margin_right = 80.0
+
+[node name="barra_saude" type="Label" parent="HUD/status"]
+margin_right = 103.0
+margin_bottom = 23.0
+theme = ExtResource( 7 )
+text = "Saude"
+
+[node name="val" type="Label" parent="HUD/status/barra_saude"]
+margin_left = 139.0
+margin_top = 2.0
+margin_right = 238.0
+margin_bottom = 25.0
+theme = ExtResource( 7 )
+text = "--"
+
+[node name="barra_stamina" type="Label" parent="HUD/status"]
+margin_top = 28.0
+margin_right = 103.0
+margin_bottom = 51.0
+theme = ExtResource( 7 )
+text = "Stamina"
+
+[node name="val" type="Label" parent="HUD/status/barra_stamina"]
+margin_left = 139.0
+margin_top = 1.0
+margin_right = 238.0
+margin_bottom = 24.0
+theme = ExtResource( 7 )
+text = "--"
+
+[node name="barra_fome" type="Label" parent="HUD/status"]
+margin_top = 53.0
+margin_right = 103.0
+margin_bottom = 76.0
+theme = ExtResource( 7 )
+text = "Fome"
+
+[node name="val" type="Label" parent="HUD/status/barra_fome"]
+margin_left = 139.0
+margin_top = 1.0
+margin_right = 238.0
+margin_bottom = 24.0
+theme = ExtResource( 7 )
+text = "--"
+
+[node name="barra_sede" type="Label" parent="HUD/status"]
+margin_top = 79.0
+margin_right = 103.0
+margin_bottom = 102.0
+theme = ExtResource( 7 )
+text = "Sede"
+
+[node name="val" type="Label" parent="HUD/status/barra_sede"]
+margin_left = 139.0
+margin_top = 1.0
+margin_right = 238.0
+margin_bottom = 24.0
+theme = ExtResource( 7 )
+text = "--"
 
 [node name="Logica" type="Node" parent="."]
 script = ExtResource( 6 )

@@ -1,6 +1,10 @@
 extends Node
 
-const DIAS_VIRTUAIS=3
+const DIAS_VIRTUAIS = 3
+
+## quanto menor mais rapido
+const FATOR_FOME = 180.0   
+const FATOR_SEDE = 40.0   
 
 export (float) var segundosRestantes=0.0
 export (int) var hora=6
@@ -9,8 +13,13 @@ export (int) var dia=1
 
 export (float) var debug=0.0
 
-func acabou_tempo():
-	print("acabou o tempo!!!")
+export (float) var saude=1.0
+export (float) var stamina=1.0
+export (float) var fome=1.0
+export (float) var sede=1.0
+
+
+ 
 
 func _ready():
 	segundosRestantes=Global.tempo_de_jogo*60
@@ -29,6 +38,18 @@ func atualiza_relogio():
 	
 func _process(delta):
 	segundosRestantes-=delta
-	atualiza_relogio()
+	atualiza_relogio() 
+	
+	fome-=delta/FATOR_FOME
+	sede-=delta/FATOR_SEDE
+
+
+	# se alguma variavel desta for menor do que zero é game over
+	for v in [saude,stamina,fome,sede,segundosRestantes]:
+		if v<=0:
+			Global.gameover()
+			pass
+	
+	
 	
 	

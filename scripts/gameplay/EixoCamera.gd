@@ -22,8 +22,7 @@ func _input(event):
 func _process(delta):  
 	if Input.is_action_just_pressed("space"):
 		alice.pular()
-		Global.gameover();
-	  
+		
 	alice.andando=Input.is_key_pressed(KEY_W)
 		
 	rotate_y(deg2rad(20)* - mouse_motion.x * sensitivity_x * delta)

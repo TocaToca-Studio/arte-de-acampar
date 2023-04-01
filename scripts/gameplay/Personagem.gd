@@ -10,7 +10,7 @@ var gravity_speed = 0
 var pular=false;
 var player_speed = 0 
 export (bool) var andando=false
-export (float) var velocidade=3
+export (float) var velocidade=3.0
 
 export (String) var animacao_andando
 
