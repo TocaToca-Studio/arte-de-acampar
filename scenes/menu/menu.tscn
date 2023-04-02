@@ -44,7 +44,6 @@ custom_fonts/font = SubResource( 3 )
 text = "Arte de Acampar"
 
 [node name="div_menu" type="Control" parent="."]
-visible = false
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -81,10 +80,12 @@ text = "Aspirante"
 
 [node name="Label" type="Label" parent="div_menu/opt_dificuldade"]
 anchor_right = 1.0
-margin_top = -24.0
-margin_bottom = 11.0
+margin_left = 1.0
+margin_top = -39.0
+margin_right = 1.0
+margin_bottom = -4.0
 custom_fonts/font = ExtResource( 5 )
-text = "Selecione o tempo de jogo"
+text = "Dificuldade:"
 
 [node name="opt_tempo" type="OptionButton" parent="div_menu"]
 anchor_left = 0.5
@@ -99,10 +100,12 @@ text = "30 minutos"
 
 [node name="Label" type="Label" parent="div_menu/opt_tempo"]
 anchor_right = 1.0
-margin_top = -24.0
-margin_bottom = 11.0
+margin_left = -1.0
+margin_top = -38.0
+margin_right = -1.0
+margin_bottom = -3.0
 custom_fonts/font = ExtResource( 5 )
-text = "Selecione o tempo de jogo"
+text = "Tempo de jogo:"
 
 [node name="div_gameover" type="Control" parent="."]
 visible = false

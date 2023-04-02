@@ -28,7 +28,16 @@ var inventario=Global.INVENTARIOS[Global.dificuldade]
 export (NodePath) var path_hud_inventario
 onready var hud_inventario=get_node(path_hud_inventario)
 
+func adiciona_coletavel(item:Coletavel):
+	if not item.codigo_item in inventario:
+		inventario[item.codigo_item]={
+			"quantidade":0
+		}
+	inventario[item.codigo_item]["quantidade"]+=item.quantidade
+	item.queue_free()
+	hud_inventario.atualiza()
 
+	
 func esforcar(fat):
 	stamina-=(1/fator_stamina)*fat
 

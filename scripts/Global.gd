@@ -2,6 +2,7 @@ extends Node
  
 var cena_atual = null
 
+const GRAVIDADE = 9.8
 const DIFICULDADES = {
 	0:"Aspirante",
 	1:"Desbravador entusiasta", 

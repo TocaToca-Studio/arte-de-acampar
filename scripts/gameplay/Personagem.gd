@@ -1,9 +1,9 @@
 extends KinematicBody
+class_name Personagem
 
 onready var piso_detector = $PisoDetector
 
 #constants
-const GRAVIDADE = 9.8
 const JUMP_HEIGHT = 3 
 
 var gravity_speed = 0
@@ -34,7 +34,7 @@ func _process(_delta):
 
 func _physics_process(delta): 
 	#gravity
-	gravity_speed -= GRAVIDADE * delta 
+	gravity_speed -= Global.GRAVIDADE * delta 
 	gravity_speed=clamp(gravity_speed,-50,5)
 	#character moviment
 	var velocity = Vector3()  

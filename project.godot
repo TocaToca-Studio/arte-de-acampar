@@ -8,6 +8,22 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "KinematicBody",
+"class": "Coletavel",
+"language": "GDScript",
+"path": "res://scripts/gameplay/Coletavel.gd"
+}, {
+"base": "KinematicBody",
+"class": "Personagem",
+"language": "GDScript",
+"path": "res://scripts/gameplay/Personagem.gd"
+} ]
+_global_script_class_icons={
+"Coletavel": "",
+"Personagem": ""
+}
+
 [application]
 
 config/name="arte-de-acampar"
