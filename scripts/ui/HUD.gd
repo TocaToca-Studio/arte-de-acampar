@@ -15,6 +15,7 @@ onready var acao:bool = false
 onready var acao_identificador:String = ""
 onready var rect_acao=$rect_acao
 onready var label_acao=$rect_acao/bg/text_acao
+ 
 
 func set_acao(texto_acao,identificador): 
 	acao=true
