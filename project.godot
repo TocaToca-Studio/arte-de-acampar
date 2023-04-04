@@ -34,6 +34,11 @@ config/icon="res://icon.png"
 
 Global="*res://scripts/Global.gd"
 
+[display]
+
+window/size/width=640
+window/size/height=360
+
 [global]
 
 cena=false
