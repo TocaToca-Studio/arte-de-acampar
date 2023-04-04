@@ -23,6 +23,8 @@ onready var sedeLbl=get_node(sedeLbl_path)
 export (NodePath) var dificuldadeLbl_path
 onready var dificuldadeLbl=get_node(dificuldadeLbl_path)
 
+export (NodePath) var barra_rapida_path
+onready var barra_rapida=get_node(barra_rapida_path)
 
 export (NodePath) var tempoLbl_path
 onready var tempoLbl=get_node(tempoLbl_path)
@@ -49,6 +51,10 @@ func limpa_acao(identificador):
 func _ready():
 	dificuldadeLbl.set_text(Global.DIFICULDADES[Global.dificuldade])
 	#tempoLbl.set_text(Global.TEMPOS_DE_JOGO[Global.tempo_de_jogo])
+	barra_rapida.add_item("1")
+	barra_rapida.add_item("2")
+	barra_rapida.add_item("3")
+	barra_rapida.add_item("4")
  
 func porc(val):
 	return val*100.0

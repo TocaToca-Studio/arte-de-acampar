@@ -22,7 +22,8 @@ var mouse_motion = Vector2()
  
 onready var eixoX=$offset/EixoX
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	pass
 
 func _input(event): 
 	if event is InputEventMouseMotion:
