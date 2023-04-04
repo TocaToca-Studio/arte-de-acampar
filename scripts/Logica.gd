@@ -49,7 +49,7 @@ func _ready():
 	segundosRestantes=Global.tempo_de_jogo*60
 	## carrega inventario de acordo com a dificuldade
 	inventario= Global.INVENTARIOS[Global.dificuldade]
-	hud_inventario.atualiza()
+	#hud_inventario.atualiza()
 	
 func atualiza_relogio():
 	var minutos_totais=DIAS_VIRTUAIS*24*60
