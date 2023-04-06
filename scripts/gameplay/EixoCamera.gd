@@ -25,17 +25,21 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	pass
 
+func capturando_movimento() : 
+	return Input.get_mouse_mode()==Input.MOUSE_MODE_CAPTURED
+
 func _input(event): 
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and capturando_movimento():
 		mouse_motion = event.relative  
+	else: mouse_motion = Vector2.ZERO
 
 
 func _process(delta):  
-	if Input.is_action_just_pressed("space") and not logica.is_cansado():
-		logica.esforcar(3)
-		alice.pular()
-		
-	alice.andando=Input.is_key_pressed(KEY_W)
+	if  capturando_movimento():
+		if Input.is_action_just_pressed("space") and not logica.is_cansado():
+			logica.esforcar(3)
+			alice.pular() 
+		alice.andando=Input.is_key_pressed(KEY_W) 
 		
 	rotate_y(deg2rad(20)* - mouse_motion.x * sensitivity_x * delta)
 	eixoX.rotate_x(deg2rad(20) * - mouse_motion.y * sensitivity_y * delta)
@@ -62,6 +66,6 @@ func _process(delta):
 		hud.set_acao("Pressione F para adicionar o item ao seu inventário","coletavel")
 	else: hud.limpa_acao("coletavel")
 
-	if Input.is_key_pressed(KEY_F):
+	if Input.is_key_pressed(KEY_F)  and capturando_movimento():
 		for item in itens_detectados: 
 			logica.adiciona_coletavel(item)

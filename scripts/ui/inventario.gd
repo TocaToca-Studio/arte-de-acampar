@@ -8,7 +8,10 @@ onready var logica=get_node(node_logica)
 var slots=[] 
 
 func abre_fecha():
-	set_visible(not is_visible())
+	set_visible(not is_visible()) 
+	Input.set_mouse_mode(
+		 Input.MOUSE_MODE_VISIBLE if is_visible() else Input.MOUSE_MODE_CAPTURED
+	)
 	
 	
 func _ready():

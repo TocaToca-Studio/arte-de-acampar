@@ -18,6 +18,9 @@ onready var fomeLbl=get_node(fomeLbl_path)
 export (NodePath) var sedeLbl_path
 onready var sedeLbl=get_node(sedeLbl_path)
 
+export (NodePath) var  marcador_dia_path
+onready var marcador_dia=get_node(marcador_dia_path)
+
 
 
 export (NodePath) var dificuldadeLbl_path
@@ -26,12 +29,20 @@ onready var dificuldadeLbl=get_node(dificuldadeLbl_path)
 
 export (NodePath) var tempoLbl_path
 onready var tempoLbl=get_node(tempoLbl_path)
+export (NodePath) var camera_path
+onready var camera=get_node(camera_path)
 
 onready var acao:bool = false
 onready var acao_identificador:String = ""
 onready var rect_acao=$rect_acao
 onready var label_acao=$rect_acao/bg/text_acao
- 
+
+var amb_dia = preload("res://scenes/ilha/dia.tres")
+var amb_noite = preload("res://scenes/ilha/noite.tres")
+var text_dia = preload("res://texturas/hud/dia.tres")
+var text_noite = preload("res://texturas/hud/noite.tres")
+var exibindo_dia=true
+
 
 func set_acao(texto_acao,identificador): 
 	acao=true
@@ -60,5 +71,16 @@ func _process(_delta):
 	staminaLbl.set_value(porc(logica.stamina))
 	fomeLbl.set_value(porc(logica.fome))
 	sedeLbl.set_value(porc(logica.sede))
+	
+	var is_dia=logica.is_dia()
+	if is_dia!=exibindo_dia:
+		if is_dia: 
+			marcador_dia.set_texture(text_dia)
+			camera.set_environment(amb_dia)
+		else:
+			marcador_dia.set_texture(text_noite) 
+			camera.set_environment(amb_noite)
+		exibindo_dia=is_dia
+		
 
 	

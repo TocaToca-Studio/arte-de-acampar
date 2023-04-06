@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/#2 - Transparent Icons & Drop Shadow.png-62a8007fe4b1c51fb64b52d5a34f69e8.stex"
+path="res://.import/icones_7.png-6bb0077f8f527c0ea66f302c287d1cb3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://texturas/hud/Shikashi's Fantasy Icons Pack v2/#2 - Transparent Icons & Drop Shadow.png"
-dest_files=[ "res://.import/#2 - Transparent Icons & Drop Shadow.png-62a8007fe4b1c51fb64b52d5a34f69e8.stex" ]
+source_file="res://texturas/icones/icones_7.png"
+dest_files=[ "res://.import/icones_7.png-6bb0077f8f527c0ea66f302c287d1cb3.stex" ]
 
 [params]
 

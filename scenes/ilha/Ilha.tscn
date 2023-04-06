@@ -1,10 +1,10 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://texturas/natureza/Texture1.png" type="Texture" id=1]
 [ext_resource path="res://models/personagens/alice/alice.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/gameplay/EixoCamera.gd" type="Script" id=3]
 [ext_resource path="res://models/personagens/Personagem.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/ilha/ceu.tres" type="ProceduralSky" id=5]
+[ext_resource path="res://scenes/ilha/noite.tres" type="Environment" id=5]
 [ext_resource path="res://scripts/Logica.gd" type="Script" id=6]
 [ext_resource path="res://scenes/ilha/hud/tema.tres" type="Theme" id=7]
 [ext_resource path="res://scripts/ui/HUD.gd" type="Script" id=8]
@@ -15,11 +15,14 @@
 [ext_resource path="res://scripts/ui/inventario.gd" type="Script" id=13]
 [ext_resource path="res://scripts/gameplay/Coletavel.gd" type="Script" id=14]
 [ext_resource path="res://scenes/ilha/hud/fonte_labels_2.tres" type="DynamicFont" id=15]
-[ext_resource path="res://texturas/hud/joystick_32.png" type="Texture" id=16]
-[ext_resource path="res://texturas/hud/relogio_32.png" type="Texture" id=17]
+[ext_resource path="res://texturas/hud/dificuldade.tres" type="Texture" id=16]
+[ext_resource path="res://texturas/hud/dia.tres" type="Texture" id=17]
 [ext_resource path="res://scenes/menu/fonte_labels.tres" type="DynamicFont" id=18]
-[ext_resource path="res://texturas/hud/mochila_40.png" type="Texture" id=19]
+[ext_resource path="res://texturas/hud/transparente.tres" type="StyleBox" id=19]
 [ext_resource path="res://scenes/menu/botoes.ttf" type="DynamicFontData" id=20]
+[ext_resource path="res://scripts/gameplay/Icones.gd" type="Script" id=21]
+[ext_resource path="res://texturas/hud/mochila.tres" type="Texture" id=22]
+[ext_resource path="res://texturas/hud/slot_vazio_inventario.tres" type="Texture" id=23]
 
 [sub_resource type="SphereShape" id=10]
 radius = 0.4
@@ -400,13 +403,6 @@ length = 1.20833
 
 [sub_resource type="SphereShape" id=11]
 radius = 1.3
-
-[sub_resource type="Environment" id=9]
-background_mode = 2
-background_sky = ExtResource( 5 )
-background_color = Color( 0.658824, 0.992157, 1, 1 )
-ambient_light_color = Color( 1, 1, 1, 1 )
-fog_color = Color( 0.658824, 0.992157, 1, 1 )
 
 [sub_resource type="StyleBoxFlat" id=12]
 bg_color = Color( 0.784314, 0, 0, 1 )
@@ -885,11 +881,14 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.41 )
 
 [node name="Camera" type="Camera" parent="EixoCamera/offset/EixoX"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.79385 )
-environment = SubResource( 9 )
+environment = ExtResource( 5 )
 
 [node name="Logica" type="Node" parent="."]
 script = ExtResource( 6 )
 path_hud_inventario = NodePath("../HUD/inventario")
+
+[node name="icones" type="Node" parent="Logica"]
+script = ExtResource( 21 )
 
 [node name="Spatial" type="Spatial" parent="."]
 
@@ -1476,7 +1475,9 @@ saudeLbl_path = NodePath("inferior/saude")
 staminaLbl_path = NodePath("inferior/stamina")
 fomeLbl_path = NodePath("inferior/fome")
 sedeLbl_path = NodePath("inferior/sede")
+marcador_dia_path = NodePath("superior/relogio/icone")
 dificuldadeLbl_path = NodePath("superior/dificuldade/Label")
+camera_path = NodePath("../EixoCamera/offset/EixoX/Camera")
 
 [node name="inferior" type="Control" parent="HUD"]
 anchor_top = 1.0
@@ -1524,33 +1525,50 @@ value = 50.0
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -86.0
-margin_right = 86.0
-margin_bottom = -0.200012
+margin_left = -70.0
+margin_top = 3.0
+margin_right = 70.0
+margin_bottom = -15.0
 columns = 4
 
-[node name="slot0" type="Panel" parent="HUD/inferior/hotbar"]
-margin_right = 40.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 40, 40 )
+[node name="slot0" type="TextureButton" parent="HUD/inferior/hotbar"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+focus_mode = 0
+enabled_focus_mode = 0
+texture_normal = ExtResource( 23 )
+stretch_mode = 3
 
-[node name="slot1" type="Panel" parent="HUD/inferior/hotbar"]
-margin_left = 44.0
-margin_right = 84.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 40, 40 )
+[node name="slot1" type="TextureButton" parent="HUD/inferior/hotbar"]
+margin_left = 36.0
+margin_right = 68.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+focus_mode = 0
+enabled_focus_mode = 0
+texture_normal = ExtResource( 23 )
+stretch_mode = 3
 
-[node name="slot2" type="Panel" parent="HUD/inferior/hotbar"]
-margin_left = 88.0
-margin_right = 128.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 40, 40 )
+[node name="slot2" type="TextureButton" parent="HUD/inferior/hotbar"]
+margin_left = 72.0
+margin_right = 104.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+focus_mode = 0
+enabled_focus_mode = 0
+texture_normal = ExtResource( 23 )
+stretch_mode = 3
 
-[node name="slot3" type="Panel" parent="HUD/inferior/hotbar"]
-margin_left = 132.0
-margin_right = 172.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 40, 40 )
+[node name="slot3" type="TextureButton" parent="HUD/inferior/hotbar"]
+margin_left = 108.0
+margin_right = 140.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+focus_mode = 0
+enabled_focus_mode = 0
+texture_normal = ExtResource( 23 )
+stretch_mode = 3
 
 [node name="superior" type="Control" parent="HUD"]
 anchor_right = 1.0
@@ -1601,11 +1619,18 @@ anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -50.0
 margin_top = 50.0
+margin_bottom = 94.0
 focus_mode = 0
+custom_styles/hover = ExtResource( 19 )
+custom_styles/pressed = ExtResource( 19 )
+custom_styles/focus = ExtResource( 19 )
+custom_styles/disabled = ExtResource( 19 )
+custom_styles/normal = ExtResource( 19 )
 shortcut_in_tooltip = false
 enabled_focus_mode = 0
 shortcut = SubResource( 22 )
-icon = ExtResource( 19 )
+icon = ExtResource( 22 )
+icon_align = 1
 
 [node name="rect_acao" type="Control" parent="HUD"]
 visible = false
@@ -1639,9 +1664,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -160.0
+margin_left = -150.0
 margin_top = -80.0
-margin_right = 160.0
+margin_right = 150.0
 margin_bottom = 80.0
 custom_styles/panel = SubResource( 20 )
 script = ExtResource( 13 )
@@ -1668,161 +1693,185 @@ custom_constants/vseparation = 5
 custom_constants/hseparation = 5
 columns = 8
 
-[node name="slot1" type="Panel" parent="HUD/inventario/grid"]
-margin_right = 34.0
-margin_bottom = 34.0
-rect_min_size = Vector2( 34, 34 )
+[node name="slot0" type="TextureButton" parent="HUD/inventario/grid"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 23 )
 
-[node name="slot2" type="Panel" parent="HUD/inventario/grid"]
-margin_left = 39.0
-margin_right = 73.0
-margin_bottom = 34.0
-rect_min_size = Vector2( 34, 34 )
+[node name="slot1" type="TextureButton" parent="HUD/inventario/grid"]
+margin_left = 37.0
+margin_right = 69.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 23 )
 
-[node name="slot3" type="Panel" parent="HUD/inventario/grid"]
-margin_left = 78.0
-margin_right = 112.0
-margin_bottom = 34.0
-rect_min_size = Vector2( 34, 34 )
+[node name="slot2" type="TextureButton" parent="HUD/inventario/grid"]
+margin_left = 74.0
+margin_right = 106.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 23 )
 
-[node name="slot4" type="Panel" parent="HUD/inventario/grid"]
-margin_left = 117.0
-margin_right = 151.0
-margin_bottom = 34.0
-rect_min_size = Vector2( 34, 34 )
+[node name="slot3" type="TextureButton" parent="HUD/inventario/grid"]
+margin_left = 111.0
+margin_right = 143.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 23 )
 
-[node name="slot5" type="Panel" parent="HUD/inventario/grid"]
-margin_left = 156.0
-margin_right = 190.0
-margin_bottom = 34.0
-rect_min_size = Vector2( 34, 34 )
+[node name="slot4" type="TextureButton" parent="HUD/inventario/grid"]
+margin_left = 148.0
+margin_right = 180.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 23 )
 
-[node name="slot6" type="Panel" parent="HUD/inventario/grid"]
-margin_left = 195.0
-margin_right = 229.0
-margin_bottom = 34.0
-rect_min_size = Vector2( 34, 34 )
+[node name="slot5" type="TextureButton" parent="HUD/inventario/grid"]
+margin_left = 185.0
+margin_right = 217.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 23 )
 
-[node name="slot7" type="Panel" parent="HUD/inventario/grid"]
-margin_left = 234.0
-margin_right = 268.0
-margin_bottom = 34.0
-rect_min_size = Vector2( 34, 34 )
+[node name="slot6" type="TextureButton" parent="HUD/inventario/grid"]
+margin_left = 222.0
+margin_right = 254.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 23 )
 
-[node name="slot8" type="Panel" parent="HUD/inventario/grid"]
-margin_left = 273.0
-margin_right = 307.0
-margin_bottom = 34.0
-rect_min_size = Vector2( 34, 34 )
+[node name="slot7" type="TextureButton" parent="HUD/inventario/grid"]
+margin_left = 259.0
+margin_right = 291.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 23 )
 
-[node name="slot9" type="Panel" parent="HUD/inventario/grid"]
-margin_top = 39.0
-margin_right = 34.0
-margin_bottom = 73.0
-rect_min_size = Vector2( 34, 34 )
+[node name="slot8" type="TextureButton" parent="HUD/inventario/grid"]
+margin_top = 37.0
+margin_right = 32.0
+margin_bottom = 69.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 23 )
 
-[node name="slot10" type="Panel" parent="HUD/inventario/grid"]
-margin_left = 39.0
-margin_top = 39.0
-margin_right = 73.0
-margin_bottom = 73.0
-rect_min_size = Vector2( 34, 34 )
+[node name="slot9" type="TextureButton" parent="HUD/inventario/grid"]
+margin_left = 37.0
+margin_top = 37.0
+margin_right = 69.0
+margin_bottom = 69.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 23 )
 
-[node name="slot11" type="Panel" parent="HUD/inventario/grid"]
-margin_left = 78.0
-margin_top = 39.0
-margin_right = 112.0
-margin_bottom = 73.0
-rect_min_size = Vector2( 34, 34 )
+[node name="slot10" type="TextureButton" parent="HUD/inventario/grid"]
+margin_left = 74.0
+margin_top = 37.0
+margin_right = 106.0
+margin_bottom = 69.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 23 )
 
-[node name="slot12" type="Panel" parent="HUD/inventario/grid"]
-margin_left = 117.0
-margin_top = 39.0
-margin_right = 151.0
-margin_bottom = 73.0
-rect_min_size = Vector2( 34, 34 )
+[node name="slot11" type="TextureButton" parent="HUD/inventario/grid"]
+margin_left = 111.0
+margin_top = 37.0
+margin_right = 143.0
+margin_bottom = 69.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 23 )
 
-[node name="slot13" type="Panel" parent="HUD/inventario/grid"]
-margin_left = 156.0
-margin_top = 39.0
-margin_right = 190.0
-margin_bottom = 73.0
-rect_min_size = Vector2( 34, 34 )
+[node name="slot12" type="TextureButton" parent="HUD/inventario/grid"]
+margin_left = 148.0
+margin_top = 37.0
+margin_right = 180.0
+margin_bottom = 69.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 23 )
 
-[node name="slot14" type="Panel" parent="HUD/inventario/grid"]
-margin_left = 195.0
-margin_top = 39.0
-margin_right = 229.0
-margin_bottom = 73.0
-rect_min_size = Vector2( 34, 34 )
+[node name="slot13" type="TextureButton" parent="HUD/inventario/grid"]
+margin_left = 185.0
+margin_top = 37.0
+margin_right = 217.0
+margin_bottom = 69.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 23 )
 
-[node name="slot15" type="Panel" parent="HUD/inventario/grid"]
-margin_left = 234.0
-margin_top = 39.0
-margin_right = 268.0
-margin_bottom = 73.0
-rect_min_size = Vector2( 34, 34 )
+[node name="slot14" type="TextureButton" parent="HUD/inventario/grid"]
+margin_left = 222.0
+margin_top = 37.0
+margin_right = 254.0
+margin_bottom = 69.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 23 )
 
-[node name="slot16" type="Panel" parent="HUD/inventario/grid"]
-margin_left = 273.0
-margin_top = 39.0
-margin_right = 307.0
-margin_bottom = 73.0
-rect_min_size = Vector2( 34, 34 )
+[node name="slot15" type="TextureButton" parent="HUD/inventario/grid"]
+margin_left = 259.0
+margin_top = 37.0
+margin_right = 291.0
+margin_bottom = 69.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 23 )
 
-[node name="slot17" type="Panel" parent="HUD/inventario/grid"]
-margin_top = 78.0
-margin_right = 34.0
-margin_bottom = 112.0
-rect_min_size = Vector2( 34, 34 )
+[node name="slot16" type="TextureButton" parent="HUD/inventario/grid"]
+margin_top = 74.0
+margin_right = 32.0
+margin_bottom = 106.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 23 )
 
-[node name="slot18" type="Panel" parent="HUD/inventario/grid"]
-margin_left = 39.0
-margin_top = 78.0
-margin_right = 73.0
-margin_bottom = 112.0
-rect_min_size = Vector2( 34, 34 )
+[node name="slot17" type="TextureButton" parent="HUD/inventario/grid"]
+margin_left = 37.0
+margin_top = 74.0
+margin_right = 69.0
+margin_bottom = 106.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 23 )
 
-[node name="slot19" type="Panel" parent="HUD/inventario/grid"]
-margin_left = 78.0
-margin_top = 78.0
-margin_right = 112.0
-margin_bottom = 112.0
-rect_min_size = Vector2( 34, 34 )
+[node name="slot18" type="TextureButton" parent="HUD/inventario/grid"]
+margin_left = 74.0
+margin_top = 74.0
+margin_right = 106.0
+margin_bottom = 106.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 23 )
 
-[node name="slot20" type="Panel" parent="HUD/inventario/grid"]
-margin_left = 117.0
-margin_top = 78.0
-margin_right = 151.0
-margin_bottom = 112.0
-rect_min_size = Vector2( 34, 34 )
+[node name="slot19" type="TextureButton" parent="HUD/inventario/grid"]
+margin_left = 111.0
+margin_top = 74.0
+margin_right = 143.0
+margin_bottom = 106.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 23 )
 
-[node name="slot21" type="Panel" parent="HUD/inventario/grid"]
-margin_left = 156.0
-margin_top = 78.0
-margin_right = 190.0
-margin_bottom = 112.0
-rect_min_size = Vector2( 34, 34 )
+[node name="slot20" type="TextureButton" parent="HUD/inventario/grid"]
+margin_left = 148.0
+margin_top = 74.0
+margin_right = 180.0
+margin_bottom = 106.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 23 )
 
-[node name="slot22" type="Panel" parent="HUD/inventario/grid"]
-margin_left = 195.0
-margin_top = 78.0
-margin_right = 229.0
-margin_bottom = 112.0
-rect_min_size = Vector2( 34, 34 )
+[node name="slot21" type="TextureButton" parent="HUD/inventario/grid"]
+margin_left = 185.0
+margin_top = 74.0
+margin_right = 217.0
+margin_bottom = 106.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 23 )
 
-[node name="slot23" type="Panel" parent="HUD/inventario/grid"]
-margin_left = 234.0
-margin_top = 78.0
-margin_right = 268.0
-margin_bottom = 112.0
-rect_min_size = Vector2( 34, 34 )
+[node name="slot22" type="TextureButton" parent="HUD/inventario/grid"]
+margin_left = 222.0
+margin_top = 74.0
+margin_right = 254.0
+margin_bottom = 106.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 23 )
 
-[node name="slot24" type="Panel" parent="HUD/inventario/grid"]
-margin_left = 273.0
-margin_top = 78.0
-margin_right = 307.0
-margin_bottom = 112.0
-rect_min_size = Vector2( 34, 34 )
+[node name="slot23" type="TextureButton" parent="HUD/inventario/grid"]
+margin_left = 259.0
+margin_top = 74.0
+margin_right = 291.0
+margin_bottom = 106.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 23 )
 
 [connection signal="pressed" from="HUD/superior/botaoInventario" to="HUD/inventario" method="abre_fecha"]
