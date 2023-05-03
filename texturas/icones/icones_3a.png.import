@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/mochila.png-89e46cebebe2b6b3bb54788750e16d45.stex"
+path="res://.import/icones_3a.png-a098204704c2cbd36dcf1d9012960749.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://texturas/hud/mochila.png"
-dest_files=[ "res://.import/mochila.png-89e46cebebe2b6b3bb54788750e16d45.stex" ]
+source_file="res://texturas/icones/icones_3a.png"
+dest_files=[ "res://.import/icones_3a.png-a098204704c2cbd36dcf1d9012960749.stex" ]
 
 [params]
 

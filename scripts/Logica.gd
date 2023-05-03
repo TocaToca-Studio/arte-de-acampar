@@ -63,6 +63,8 @@ func atualiza_relogio():
 	dia=hora/24
 	hora=hora%24 
 	 
+func is_dia(): 
+	return hora>=6 and hora<=18
 
 func _process(delta):
 	segundosRestantes-=delta
