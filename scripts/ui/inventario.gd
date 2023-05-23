@@ -21,6 +21,9 @@ func _ready():
 	 
 	atualiza()
 
+func _process(delta):
+	if(Input.is_action_just_pressed("abre_inventario")):abre_fecha()
+	
 func atualiza():
 	pass
 	#for slot in slots:
