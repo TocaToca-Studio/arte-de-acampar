@@ -22,7 +22,9 @@ func _ready():
 	atualiza()
 
 func _process(delta):
-	if(Input.is_action_just_pressed("abre_inventario")):abre_fecha()
+	if(Input.is_action_just_pressed("abre_inventario")):
+		abre_fecha()
+		print(logica.inventario)
 	
 func atualiza():
 	pass

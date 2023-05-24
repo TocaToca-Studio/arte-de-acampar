@@ -27,7 +27,7 @@ func _ready():
 
 func capturando_movimento() : 
 	return Input.get_mouse_mode()==Input.MOUSE_MODE_CAPTURED
-
+ 
 func _input(event): 
 	if event is InputEventMouseMotion and capturando_movimento():
 		mouse_motion = event.relative  
