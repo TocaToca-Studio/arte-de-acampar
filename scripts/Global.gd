@@ -14,43 +14,53 @@ const TEMPOS_DE_JOGO = {
 	30 : "30 minutos",
 	60 : "1 hora"
 }
- 
+
 const INVENTARIOS = {
 	0 : { # aspirante
-		"lanterna": {
+		"0": {
+			"item":"lanterna",
 			"quantidade":1
 		},
-		"faca": {
+		"1": {
+			"item":"faca",
 			"quantidade":1
 		},
-		"cantil": {
+		"2": {
+			"item":"cantil",
 			"quantidade":1,
 			"cheio":true
 		},
-		"fruta": {
+		"3": {
+			"item":"fruta",
 			"quantidade":10
 		}
 	},
 	1 : { # Desbravador entusiasta
-		"lanterna": {
+		"0": {
+			"item": "lanterna",
 			"quantidade":1
 		},
-		"faca": {
+		"1": {
+			"item":"faca",
 			"quantidade":1
 		},
-		"cantil": {
+		"2": {
+			"item":"cantil",
 			"quantidade":1,
 			"cheio":true
 		},
-		"fruta": {
+		"3": {
+			"item":"fruta",
 			"quantidade":6
 		}
 	},
 	2 : { # Conselheiro
-		"faca": {
+		"0": {
+			"item":"faca",
 			"quantidade":1
 		},  
-		"cantil": {
+		"1": {
+			"item":"cantil",
 			"quantidade":1,
 			"cheio":true
 		},
@@ -66,6 +76,11 @@ func _ready():
 	cena_atual = root.get_child(root.get_child_count() - 1)
 
 
+
+func get_inventario_da_dificuldade():
+	return INVENTARIOS[dificuldade]
+
+ 
 
 func solicitar_carregamento_de_cena(path):
 	# This function will usually be called from a signal callback,

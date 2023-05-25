@@ -22,22 +22,51 @@ export (float) var sede=1.0
 
 # intensidade do esforço é usada para calcular o gasto da stamina constante
 export (float) var esforco=0.0
- 
-var inventario=Global.INVENTARIOS[Global.dificuldade]
 
 export (NodePath) var path_hud_inventario
 onready var hud_inventario=get_node(path_hud_inventario)
 
+
+##########################INVENTARIO####################################
+
+const NUMERO_DE_SLOTS = 4 + 24 
+# os primeiros  4 itens são a barra rapida
+var inventario={}
+
+func inv_obtem_posicao_item(item:String):
+	for i in inventario:
+		if inventario[i].item==item: return item 
+	return null
+	
+func inv_obtem_posicao_livre():
+	for i in range(NUMERO_DE_SLOTS):
+		if not inventario.has(str(i)): return i
+	return null
+
+func adiciona_item(item:String,quantidade : int = 1):
+	var i = inv_obtem_posicao_item(item)
+	if i==null:
+		inventario[inv_obtem_posicao_livre()]={"item":item,"quantidade":quantidade}
+	else:
+		inventario[i]["quantidade"]+=quantidade
+	
+func remove_item(item:String,quantidade : int = 999):
+	var i = inv_obtem_posicao_item(item)
+	if i==null: return true
+	
+	inventario[i]["quantidade"]-=quantidade
+	if inventario[i]["quantidade"]<=0: inventario.erase(i)
+	
+
 func adiciona_coletavel(item:Coletavel):
-	if not item.codigo_item in inventario:
-		inventario[item.codigo_item]={
-			"quantidade":0
-		}
-	inventario[item.codigo_item]["quantidade"]+=item.quantidade
+	adiciona_item(item.codigo_item,item.quantidade)
+	
 	item.queue_free()
 	hud_inventario.atualiza()
 
 	
+
+####################################
 func esforcar(fat):
 	stamina-=(1/fator_stamina)*fat
 
