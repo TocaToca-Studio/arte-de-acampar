@@ -1469,7 +1469,6 @@ fomeLbl_path = NodePath("inferior/fome")
 sedeLbl_path = NodePath("inferior/sede")
 marcador_dia_path = NodePath("superior/relogio/icone")
 dificuldadeLbl_path = NodePath("superior/dificuldade/Label")
-barra_rapida_path = NodePath("inferior/barra_rapida")
 
 [node name="inferior" type="Control" parent="HUD"]
 anchor_top = 1.0
@@ -1617,6 +1616,7 @@ margin_bottom = 80.0
 custom_styles/panel = SubResource( 20 )
 script = ExtResource( 13 )
 node_logica = NodePath("../../Logica")
+barra_rapida_path = NodePath("../inferior/barra_rapida")
 
 [node name="titulo" type="Panel" parent="HUD/inventario"]
 anchor_right = 1.0

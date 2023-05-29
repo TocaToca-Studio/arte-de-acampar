@@ -35,7 +35,7 @@ var inventario={}
 
 func inv_obtem_posicao_item(item:String):
 	for i in inventario:
-		if inventario[i].item==item: return item 
+		if inventario[i].item==item: return i 
 	return null
 	
 func inv_obtem_posicao_livre():
@@ -105,9 +105,9 @@ func _process(delta):
 	stamina+=delta/fator_recupera_stamina
 
 	stamina=clamp(stamina,0.0,1.0) 
-	fome=clamp(fome,0.0,1.0)
-	sede=clamp(sede,0.0,1.0)
-	saude=clamp(saude,0.0,1.0)
+	fome=	clamp(fome,0.0,1.0)
+	sede=	clamp(sede,0.0,1.0)
+	saude=	clamp(saude,0.0,1.0)
 
 	# se alguma variavel desta for menor do que zero é game over
 	for v in [saude,fome,sede,segundosRestantes]:
