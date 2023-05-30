@@ -6,7 +6,6 @@ onready var logica=get_node(node_logica)
 export (NodePath) var barra_rapida_path
 onready var barra_rapida:ItemList=get_node(barra_rapida_path)
 
-
 var slots=[] 
 
 func abre_fecha():
@@ -21,10 +20,10 @@ func _ready():
 	for i in range(0,24):
 		slots.append(grid.get_node("slot"+str(i))) 
 		if(barra_rapida.get_item_count() == 0):
-			barra_rapida.add_item("1")
-			barra_rapida.add_item("2")
-			barra_rapida.add_item("3")
-			barra_rapida.add_item("4")
+			barra_rapida.add_item("")
+			barra_rapida.add_item("")
+			barra_rapida.add_item("")
+			barra_rapida.add_item("")
 	
 	atualiza()
 

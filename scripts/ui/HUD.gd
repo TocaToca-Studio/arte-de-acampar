@@ -36,6 +36,18 @@ onready var acao_identificador:String = ""
 onready var rect_acao=$rect_acao
 onready var label_acao=$rect_acao/bg/text_acao
 
+
+export (Texture) var icones_inventario
+export (Texture) var icones_inventario_selecionado
+export (Texture) var icones_redondo
+export (Texture) var icones
+ 
+func get_icone(x:int,y:int,atlas:Texture):
+	var t=AtlasTexture.new()
+	t.set_atlas(atlas)
+	t.set_region(Rect2(x*32,y*32,32,32))
+	return t
+
 var amb_dia = preload("res://scenes/ilha/dia.tres")
 var amb_noite = preload("res://scenes/ilha/noite.tres")
 var text_dia = preload("res://texturas/hud/dia.tres")
