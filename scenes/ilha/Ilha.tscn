@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://texturas/natureza/Texture1.png" type="Texture" id=1]
 [ext_resource path="res://models/personagens/alice/alice.tscn" type="PackedScene" id=2]
@@ -18,9 +18,14 @@
 [ext_resource path="res://texturas/hud/dificuldade.tres" type="Texture" id=16]
 [ext_resource path="res://texturas/hud/dia.tres" type="Texture" id=17]
 [ext_resource path="res://scenes/menu/fonte_labels.tres" type="DynamicFont" id=18]
+[ext_resource path="res://texturas/icones/icones.png" type="Texture" id=19]
 [ext_resource path="res://scenes/menu/botoes.ttf" type="DynamicFontData" id=20]
 [ext_resource path="res://scripts/gameplay/Icones.gd" type="Script" id=21]
+[ext_resource path="res://texturas/icones/icones_4b.png" type="Texture" id=22]
 [ext_resource path="res://texturas/hud/slot_vazio_inventario.tres" type="Texture" id=23]
+[ext_resource path="res://texturas/icones/icones_4a.png" type="Texture" id=24]
+[ext_resource path="res://texturas/icones/icones_3a.png" type="Texture" id=25]
+[ext_resource path="res://texturas/icones/icones_3b.png" type="Texture" id=26]
 
 [sub_resource type="SphereShape" id=10]
 radius = 0.4
@@ -1469,6 +1474,12 @@ fomeLbl_path = NodePath("inferior/fome")
 sedeLbl_path = NodePath("inferior/sede")
 marcador_dia_path = NodePath("superior/relogio/icone")
 dificuldadeLbl_path = NodePath("superior/dificuldade/Label")
+camera_path = NodePath("../EixoCamera/offset/EixoX/Camera")
+icones_inventario = ExtResource( 24 )
+icones_inventario_selecionado = ExtResource( 22 )
+icones_redondo = ExtResource( 26 )
+icones_redondo_selecionado = ExtResource( 25 )
+icones = ExtResource( 19 )
 
 [node name="inferior" type="Control" parent="HUD"]
 anchor_top = 1.0
@@ -1518,20 +1529,12 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -80.0
 margin_right = 80.0
-select_mode = 1
 allow_reselect = true
 allow_rmb_select = true
 max_columns = 4
 same_column_width = true
 fixed_column_width = 30
-fixed_icon_size = Vector2( 30, 30 )
-
-[node name="icones" type="Control" parent="HUD/inferior/barra_rapida"]
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_top = 200.0
-margin_right = 40.0
-margin_bottom = 40.0
+fixed_icon_size = Vector2( 32, 32 )
 
 [node name="superior" type="Control" parent="HUD"]
 anchor_right = 1.0
@@ -1617,6 +1620,7 @@ custom_styles/panel = SubResource( 20 )
 script = ExtResource( 13 )
 node_logica = NodePath("../../Logica")
 barra_rapida_path = NodePath("../inferior/barra_rapida")
+hud_path = NodePath("..")
 
 [node name="titulo" type="Panel" parent="HUD/inventario"]
 anchor_right = 1.0

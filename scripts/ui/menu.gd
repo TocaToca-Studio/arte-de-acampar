@@ -12,8 +12,7 @@ export (NodePath) var control_div_gameover
 onready var div_gameover=get_node(control_div_gameover)
 
 # Called when the node enters the scene tree for the first time.
-func _ready(): 
-	
+func _ready():  
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	div_gameover.set_visible(Global.game_over)
 	div_menu.set_visible(!Global.game_over) 

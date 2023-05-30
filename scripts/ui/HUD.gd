@@ -1,9 +1,9 @@
 extends Control
-
+class_name HUD
+ 
 export (NodePath) var node_logica
 onready var logica=get_node(node_logica)
-
-
+ 
 export (NodePath) var horaLbl_path
 onready var horaLbl=get_node(horaLbl_path)
 export (NodePath) var diaLbl_path
@@ -40,13 +40,31 @@ onready var label_acao=$rect_acao/bg/text_acao
 export (Texture) var icones_inventario
 export (Texture) var icones_inventario_selecionado
 export (Texture) var icones_redondo
+export (Texture) var icones_redondo_selecionado
 export (Texture) var icones
  
-func get_icone(x:int,y:int,atlas:Texture):
+enum TipoIcone {
+	INVENTARIO = 1,
+	INVENTARIO_SELECIONADO,
+	REDONDO,
+	ICONES	
+}
+
+func get_icone(x:int,y:int,atlas:int = TipoIcone.ICONES) -> AtlasTexture:
+	var text:Texture=icones
+	 
+	if atlas == TipoIcone.INVENTARIO: text = icones_inventario
+	elif atlas == TipoIcone.INVENTARIO_SELECIONADO: text = icones_inventario_selecionado
+	elif atlas == TipoIcone.REDONDO: text = icones_redondo
+	
 	var t=AtlasTexture.new()
-	t.set_atlas(atlas)
+	t.set_atlas(text)
 	t.set_region(Rect2(x*32,y*32,32,32))
 	return t
+
+func get_icone_vazio(atlas:int = TipoIcone.ICONES) -> AtlasTexture: return get_icone(12,0,atlas)
+func get_icone_generico(atlas:int = TipoIcone.ICONES) -> AtlasTexture: return get_icone(15,3,atlas)
+	
 
 var amb_dia = preload("res://scenes/ilha/dia.tres")
 var amb_noite = preload("res://scenes/ilha/noite.tres")

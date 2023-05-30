@@ -47,11 +47,11 @@ const INVENTARIOS = {
 		"2": {
 			"item":"cantil",
 			"quantidade":1,
-			"cheio":true
+			"cheio":true,
 		},
 		"3": {
 			"item":"fruta",
-			"quantidade":6
+			"quantidade":6, 
 		}
 	},
 	2 : { # Conselheiro
@@ -245,15 +245,18 @@ const ITENS = {
 	# FERRAMENTAS 
 	"cantil": {
 		"nome":"Cantil de água",
-		"is_construtivel":true
+		"is_construtivel":true,
+		"icone":[5,19]
 	},
 	"lanterna" : {
 		"nome":"Lanterna",
-		"is_ferramenta": true
+		"is_ferramenta": true,
+		"icone": [9,10]
 	},
 	"faca" : { 
 		"nome": "Faca",
-		"is_ferramenta": true
+		"is_ferramenta": true,
+		"icone": [6,5]
 	}, 
 	"tocha" : {
 		"nome": "Tocha",
@@ -292,7 +295,8 @@ const ITENS = {
 	# ALIMENTOS EM GERAL  
 	"fruta" : {
 		"nome": "Fruta comestível",
-		"is_comestivel":true
+		"is_comestivel":true, 
+		"icone":[0,14]
 	}, 
 	"peixe" : {
 		"nome": "Peixe",
