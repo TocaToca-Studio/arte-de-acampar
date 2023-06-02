@@ -67,6 +67,8 @@ const INVENTARIOS = {
 	},
 	3 : {  } # lider master tem que se virar
 }
+
+
 export (int) var dificuldade = 0
 export (int) var tempo_de_jogo = 30
 export (bool) var game_over = false
@@ -76,11 +78,9 @@ func _ready():
 	cena_atual = root.get_child(root.get_child_count() - 1)
 
 
-
 func get_inventario_da_dificuldade():
 	return INVENTARIOS[dificuldade]
 
- 
 
 func solicitar_carregamento_de_cena(path):
 	# This function will usually be called from a signal callback,

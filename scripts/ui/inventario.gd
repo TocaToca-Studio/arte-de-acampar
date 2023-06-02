@@ -37,18 +37,18 @@ func _process(delta):
 		print(logica.inventario)
 	
 func atualiza():
-	for i in range(0,3):
+	for i in range(0,4):
 		if logica.inventario.has(str(i)):
 			var inv_item=logica.inventario[str(i)]
 			var item=Global.ITENS[inv_item["item"]] 
-			barra_rapida.set_item_text(i,str(inv_item["quantidade"])+"x")
 			if item.has("icone"): 
 				 barra_rapida.set_item_icon(i,hud.get_icone(item["icone"][0],item["icone"][1],hud.TipoIcone.INVENTARIO))
 			else:
 				barra_rapida.set_item_icon(i,hud.get_icone_generico(hud.TipoIcone.INVENTARIO))
+			#barra_rapida.set_item_text(i,str(inv_item["quantidade"])+"x")
 		else:
 			barra_rapida.set_item_icon(i,hud.get_icone_vazio(hud.TipoIcone.INVENTARIO))
-			barra_rapida.set_item_text(i,"")
+			#barra_rapida.set_item_text(i,"")
 		
 	pass
 	#for slot in slots:
