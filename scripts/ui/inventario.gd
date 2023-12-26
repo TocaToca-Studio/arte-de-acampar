@@ -4,7 +4,7 @@ export (NodePath) var node_logica
 onready var logica=get_node(node_logica)
  
 export (NodePath) var barra_rapida_path
-onready var barra_rapida:ItemList=get_node(barra_rapida_path)
+onready var barra_rapida:GridContainer=get_node(barra_rapida_path)
  
 export (NodePath) var hud_path
 onready var hud:HUD=get_node(hud_path)
@@ -19,17 +19,52 @@ func abre_fecha():
 	
 	
 func _ready():
+	hud=get_node(hud_path)
 	var grid=$grid;
+	
+	for i in range(0,4):
+		slots.append(barra_rapida.get_node("slot"+str(i))) 
+		
 	for i in range(0,24):
 		slots.append(grid.get_node("slot"+str(i))) 
-
-	if(barra_rapida.get_item_count() == 0):
-		barra_rapida.add_item("",hud.get_icone_vazio(hud.TipoIcone.INVENTARIO),true) 
-		barra_rapida.add_item("",hud.get_icone_vazio(hud.TipoIcone.INVENTARIO),true) 
-		barra_rapida.add_item("",hud.get_icone_vazio(hud.TipoIcone.INVENTARIO),true) 
-		barra_rapida.add_item("",hud.get_icone_vazio(hud.TipoIcone.INVENTARIO),true) 
+			 
+	for i in range(0,len(slots)):
+		slots[i].set_indice(i)
+		slots[i].set_hud(hud)
+		slots[i].connect("pressed", self, str("apertou_slot"),[i,slots[i]])
 		
 	atualiza()
+	
+func obtem_slot_selecionados():
+	var selecao={}
+	for slot in slots:
+		if slot.pressed: 
+			selecao[str(slot.get_indice())]=slot
+	return selecao
+
+func limpa_selecao():
+	for slot in slots:
+		slot.set_pressed_no_signal(false)
+		slot.redesenha()
+		
+
+
+func apertou_slot(indice,slot): 
+	var selecionados=obtem_slot_selecionados();
+	print("slots selecionados :"+str(len(selecionados)))
+	if len(selecionados)==2:
+		selecionados.erase(str(indice))
+		var origem=selecionados.keys()[0]
+		logica.inv_move_slot(origem,indice)
+		# selecionou dois no inventario
+		limpa_selecao()
+		atualiza()
+	
+	if not (str(indice) in logica.inventario):
+		slots[indice].set_pressed_no_signal(false)
+		
+	slots[indice].redesenha();
+	
 
 func _process(delta):
 	if(Input.is_action_just_pressed("abre_inventario")):
@@ -37,32 +72,19 @@ func _process(delta):
 		print(logica.inventario)
 	
 func atualiza():
-	for i in range(0,4):
-		if logica.inventario.has(str(i)):
-			var inv_item=logica.inventario[str(i)]
-			var item=Global.ITENS[inv_item["item"]] 
-			if item.has("icone"): 
-				 barra_rapida.set_item_icon(i,hud.get_icone(item["icone"][0],item["icone"][1],hud.TipoIcone.INVENTARIO))
-			else:
-				barra_rapida.set_item_icon(i,hud.get_icone_generico(hud.TipoIcone.INVENTARIO))
-			#barra_rapida.set_item_text(i,str(inv_item["quantidade"])+"x")
-		else:
-			barra_rapida.set_item_icon(i,hud.get_icone_vazio(hud.TipoIcone.INVENTARIO))
-			#barra_rapida.set_item_text(i,"")
+	if len(slots) == 0:
+		return
+	if logica == null:
+		return
 		
-	pass
-	#for slot in slots:
-		#slot.set_text("--") 
-	#pass
-	
-	#var idx_slot=0
-	#for codigo_item in logica.inventario:
-		#if idx_slot>5: break;
-		#var item_inventario=logica.inventario[codigo_item]
-		#var item=Global.ITENS[codigo_item]
-		#slots[idx_slot].set_text(
-		#	str(item_inventario["quantidade"])+"x "+item["nome"]
-		#)
-		#idx_slot+=1
+	for slot in slots:
+		slot.limpa()
+		
+	for idx in logica.inventario: 
+		var slot=slots[int(idx)] 
+		slot.atualiza_item(logica.inventario[idx])
+		
+
+
 
  

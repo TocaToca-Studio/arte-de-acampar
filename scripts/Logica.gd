@@ -35,12 +35,12 @@ var inventario={}
 
 func inv_obtem_posicao_item(item:String):
 	for i in inventario:
-		if inventario[i].item==item: return i 
+		if inventario[str(i)].item==item: return str(i) 
 	return null
 	
 func inv_obtem_posicao_livre():
 	for i in range(NUMERO_DE_SLOTS):
-		if not inventario.has(str(i)): return i
+		if not inventario.has(str(i)): return str(i)
 	return null
 
 func adiciona_item(item:String,quantidade : int = 1):
@@ -49,7 +49,20 @@ func adiciona_item(item:String,quantidade : int = 1):
 		inventario[inv_obtem_posicao_livre()]={"item":item,"quantidade":quantidade}
 	else:
 		inventario[i]["quantidade"]+=quantidade
+
+func inv_move_slot(origem,destino):
+	if not (str(origem) in inventario):
+		print("ERRO ao mover slot, slot origem não existe.")
+		return
 	
+	if str(destino) in inventario:
+		var bkp_destino=inventario[str(destino)]
+		inventario[str(destino)]=inventario[str(origem)]
+		inventario[str(origem)]=bkp_destino
+	else: 
+		inventario[str(destino)]=inventario[str(origem)]
+		inventario.erase(str(origem))
+
 func remove_item(item:String,quantidade : int = 999):
 	var i = inv_obtem_posicao_item(item)
 	if i==null: return true
@@ -58,13 +71,12 @@ func remove_item(item:String,quantidade : int = 999):
 	if inventario[i]["quantidade"]<=0: inventario.erase(i)
 	
 
+
 func adiciona_coletavel(item:Coletavel):
 	adiciona_item(item.codigo_item,item.quantidade)
 	
 	item.queue_free()
 	hud_inventario.atualiza()
-
-	
 
 ####################################
 func esforcar(fat):

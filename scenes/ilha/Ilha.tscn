@@ -26,6 +26,7 @@
 [ext_resource path="res://texturas/icones/icones_4a.png" type="Texture" id=24]
 [ext_resource path="res://texturas/icones/icones_3a.png" type="Texture" id=25]
 [ext_resource path="res://texturas/icones/icones_3b.png" type="Texture" id=26]
+[ext_resource path="res://scripts/ui/slot.gd" type="Script" id=27]
 
 [sub_resource type="SphereShape" id=10]
 radius = 0.4
@@ -438,8 +439,6 @@ skew = Vector2( 0.5, 0 )
 [sub_resource type="StyleBoxFlat" id=19]
 bg_color = Color( 0, 0.396078, 0.596078, 1 )
 skew = Vector2( 0.5, 0 )
-
-[sub_resource type="Theme" id=24]
 
 [sub_resource type="DynamicFont" id=23]
 size = 15
@@ -1525,20 +1524,94 @@ custom_styles/fg = SubResource( 18 )
 custom_styles/bg = SubResource( 19 )
 value = 50.0
 
-[node name="barra_rapida" type="ItemList" parent="HUD/inferior"]
+[node name="barra_rapida" type="GridContainer" parent="HUD/inferior"]
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -84.0
-margin_right = 84.0
-theme = SubResource( 24 )
-custom_colors/font_color_selected = Color( 0.647059, 0.647059, 0.647059, 1 )
-allow_reselect = true
-allow_rmb_select = true
-max_columns = 4
-same_column_width = true
-fixed_column_width = 32
-fixed_icon_size = Vector2( 32, 32 )
+margin_left = -71.0
+margin_right = 71.0
+custom_constants/vseparation = 5
+custom_constants/hseparation = 5
+columns = 4
+
+[node name="slot0" type="TextureButton" parent="HUD/inferior/barra_rapida"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+focus_mode = 1
+toggle_mode = true
+enabled_focus_mode = 1
+texture_normal = ExtResource( 23 )
+script = ExtResource( 27 )
+
+[node name="qtd" type="Label" parent="HUD/inferior/barra_rapida/slot0"]
+margin_right = 15.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 0
+text = "24"
+align = 1
+
+[node name="slot1" type="TextureButton" parent="HUD/inferior/barra_rapida"]
+margin_left = 37.0
+margin_right = 69.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+focus_mode = 1
+toggle_mode = true
+enabled_focus_mode = 1
+texture_normal = ExtResource( 23 )
+script = ExtResource( 27 )
+
+[node name="qtd" type="Label" parent="HUD/inferior/barra_rapida/slot1"]
+margin_right = 15.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 0
+text = "24"
+align = 1
+
+[node name="slot2" type="TextureButton" parent="HUD/inferior/barra_rapida"]
+margin_left = 74.0
+margin_right = 106.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+focus_mode = 1
+toggle_mode = true
+enabled_focus_mode = 1
+texture_normal = ExtResource( 23 )
+script = ExtResource( 27 )
+
+[node name="qtd" type="Label" parent="HUD/inferior/barra_rapida/slot2"]
+margin_right = 15.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 0
+text = "24"
+align = 1
+
+[node name="slot3" type="TextureButton" parent="HUD/inferior/barra_rapida"]
+margin_left = 111.0
+margin_right = 143.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+focus_mode = 1
+toggle_mode = true
+enabled_focus_mode = 1
+texture_normal = ExtResource( 23 )
+script = ExtResource( 27 )
+
+[node name="qtd" type="Label" parent="HUD/inferior/barra_rapida/slot3"]
+margin_right = 15.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 0
+text = "24"
+align = 1
 
 [node name="superior" type="Control" parent="HUD"]
 anchor_right = 1.0
@@ -1652,63 +1725,162 @@ columns = 8
 margin_right = 32.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 32, 32 )
+toggle_mode = true
 texture_normal = ExtResource( 23 )
+script = ExtResource( 27 )
+
+[node name="qtd" type="Label" parent="HUD/inventario/grid/slot0"]
+margin_right = 15.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 0
+text = "24"
+align = 1
 
 [node name="slot1" type="TextureButton" parent="HUD/inventario/grid"]
 margin_left = 37.0
 margin_right = 69.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 32, 32 )
+toggle_mode = true
 texture_normal = ExtResource( 23 )
+script = ExtResource( 27 )
+
+[node name="qtd" type="Label" parent="HUD/inventario/grid/slot1"]
+margin_right = 15.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 0
+text = "24"
+align = 1
 
 [node name="slot2" type="TextureButton" parent="HUD/inventario/grid"]
 margin_left = 74.0
 margin_right = 106.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 32, 32 )
+toggle_mode = true
 texture_normal = ExtResource( 23 )
+script = ExtResource( 27 )
+
+[node name="qtd" type="Label" parent="HUD/inventario/grid/slot2"]
+margin_right = 15.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 0
+text = "24"
+align = 1
 
 [node name="slot3" type="TextureButton" parent="HUD/inventario/grid"]
 margin_left = 111.0
 margin_right = 143.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 32, 32 )
+toggle_mode = true
 texture_normal = ExtResource( 23 )
+script = ExtResource( 27 )
+
+[node name="qtd" type="Label" parent="HUD/inventario/grid/slot3"]
+margin_right = 15.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 0
+text = "24"
+align = 1
 
 [node name="slot4" type="TextureButton" parent="HUD/inventario/grid"]
 margin_left = 148.0
 margin_right = 180.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 32, 32 )
+toggle_mode = true
 texture_normal = ExtResource( 23 )
+script = ExtResource( 27 )
+
+[node name="qtd" type="Label" parent="HUD/inventario/grid/slot4"]
+margin_right = 15.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 0
+text = "24"
+align = 1
 
 [node name="slot5" type="TextureButton" parent="HUD/inventario/grid"]
 margin_left = 185.0
 margin_right = 217.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 32, 32 )
+toggle_mode = true
 texture_normal = ExtResource( 23 )
+script = ExtResource( 27 )
+
+[node name="qtd" type="Label" parent="HUD/inventario/grid/slot5"]
+margin_right = 15.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 0
+text = "24"
+align = 1
 
 [node name="slot6" type="TextureButton" parent="HUD/inventario/grid"]
 margin_left = 222.0
 margin_right = 254.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 32, 32 )
+toggle_mode = true
 texture_normal = ExtResource( 23 )
+script = ExtResource( 27 )
+
+[node name="qtd" type="Label" parent="HUD/inventario/grid/slot6"]
+margin_right = 15.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 0
+text = "24"
+align = 1
 
 [node name="slot7" type="TextureButton" parent="HUD/inventario/grid"]
 margin_left = 259.0
 margin_right = 291.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 32, 32 )
+toggle_mode = true
 texture_normal = ExtResource( 23 )
+script = ExtResource( 27 )
+
+[node name="qtd" type="Label" parent="HUD/inventario/grid/slot7"]
+margin_right = 15.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 0
+text = "24"
+align = 1
 
 [node name="slot8" type="TextureButton" parent="HUD/inventario/grid"]
 margin_top = 37.0
 margin_right = 32.0
 margin_bottom = 69.0
 rect_min_size = Vector2( 32, 32 )
+toggle_mode = true
 texture_normal = ExtResource( 23 )
+script = ExtResource( 27 )
+
+[node name="qtd" type="Label" parent="HUD/inventario/grid/slot8"]
+margin_right = 15.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 0
+text = "24"
+align = 1
 
 [node name="slot9" type="TextureButton" parent="HUD/inventario/grid"]
 margin_left = 37.0
@@ -1716,7 +1888,18 @@ margin_top = 37.0
 margin_right = 69.0
 margin_bottom = 69.0
 rect_min_size = Vector2( 32, 32 )
+toggle_mode = true
 texture_normal = ExtResource( 23 )
+script = ExtResource( 27 )
+
+[node name="qtd" type="Label" parent="HUD/inventario/grid/slot9"]
+margin_right = 15.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 0
+text = "24"
+align = 1
 
 [node name="slot10" type="TextureButton" parent="HUD/inventario/grid"]
 margin_left = 74.0
@@ -1724,7 +1907,18 @@ margin_top = 37.0
 margin_right = 106.0
 margin_bottom = 69.0
 rect_min_size = Vector2( 32, 32 )
+toggle_mode = true
 texture_normal = ExtResource( 23 )
+script = ExtResource( 27 )
+
+[node name="qtd" type="Label" parent="HUD/inventario/grid/slot10"]
+margin_right = 15.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 0
+text = "24"
+align = 1
 
 [node name="slot11" type="TextureButton" parent="HUD/inventario/grid"]
 margin_left = 111.0
@@ -1732,7 +1926,18 @@ margin_top = 37.0
 margin_right = 143.0
 margin_bottom = 69.0
 rect_min_size = Vector2( 32, 32 )
+toggle_mode = true
 texture_normal = ExtResource( 23 )
+script = ExtResource( 27 )
+
+[node name="qtd" type="Label" parent="HUD/inventario/grid/slot11"]
+margin_right = 15.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 0
+text = "24"
+align = 1
 
 [node name="slot12" type="TextureButton" parent="HUD/inventario/grid"]
 margin_left = 148.0
@@ -1740,7 +1945,18 @@ margin_top = 37.0
 margin_right = 180.0
 margin_bottom = 69.0
 rect_min_size = Vector2( 32, 32 )
+toggle_mode = true
 texture_normal = ExtResource( 23 )
+script = ExtResource( 27 )
+
+[node name="qtd" type="Label" parent="HUD/inventario/grid/slot12"]
+margin_right = 15.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 0
+text = "24"
+align = 1
 
 [node name="slot13" type="TextureButton" parent="HUD/inventario/grid"]
 margin_left = 185.0
@@ -1748,7 +1964,18 @@ margin_top = 37.0
 margin_right = 217.0
 margin_bottom = 69.0
 rect_min_size = Vector2( 32, 32 )
+toggle_mode = true
 texture_normal = ExtResource( 23 )
+script = ExtResource( 27 )
+
+[node name="qtd" type="Label" parent="HUD/inventario/grid/slot13"]
+margin_right = 15.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 0
+text = "24"
+align = 1
 
 [node name="slot14" type="TextureButton" parent="HUD/inventario/grid"]
 margin_left = 222.0
@@ -1756,7 +1983,18 @@ margin_top = 37.0
 margin_right = 254.0
 margin_bottom = 69.0
 rect_min_size = Vector2( 32, 32 )
+toggle_mode = true
 texture_normal = ExtResource( 23 )
+script = ExtResource( 27 )
+
+[node name="qtd" type="Label" parent="HUD/inventario/grid/slot14"]
+margin_right = 15.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 0
+text = "24"
+align = 1
 
 [node name="slot15" type="TextureButton" parent="HUD/inventario/grid"]
 margin_left = 259.0
@@ -1764,14 +2002,36 @@ margin_top = 37.0
 margin_right = 291.0
 margin_bottom = 69.0
 rect_min_size = Vector2( 32, 32 )
+toggle_mode = true
 texture_normal = ExtResource( 23 )
+script = ExtResource( 27 )
+
+[node name="qtd" type="Label" parent="HUD/inventario/grid/slot15"]
+margin_right = 15.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 0
+text = "24"
+align = 1
 
 [node name="slot16" type="TextureButton" parent="HUD/inventario/grid"]
 margin_top = 74.0
 margin_right = 32.0
 margin_bottom = 106.0
 rect_min_size = Vector2( 32, 32 )
+toggle_mode = true
 texture_normal = ExtResource( 23 )
+script = ExtResource( 27 )
+
+[node name="qtd" type="Label" parent="HUD/inventario/grid/slot16"]
+margin_right = 15.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 0
+text = "24"
+align = 1
 
 [node name="slot17" type="TextureButton" parent="HUD/inventario/grid"]
 margin_left = 37.0
@@ -1779,7 +2039,18 @@ margin_top = 74.0
 margin_right = 69.0
 margin_bottom = 106.0
 rect_min_size = Vector2( 32, 32 )
+toggle_mode = true
 texture_normal = ExtResource( 23 )
+script = ExtResource( 27 )
+
+[node name="qtd" type="Label" parent="HUD/inventario/grid/slot17"]
+margin_right = 15.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 0
+text = "24"
+align = 1
 
 [node name="slot18" type="TextureButton" parent="HUD/inventario/grid"]
 margin_left = 74.0
@@ -1787,7 +2058,18 @@ margin_top = 74.0
 margin_right = 106.0
 margin_bottom = 106.0
 rect_min_size = Vector2( 32, 32 )
+toggle_mode = true
 texture_normal = ExtResource( 23 )
+script = ExtResource( 27 )
+
+[node name="qtd" type="Label" parent="HUD/inventario/grid/slot18"]
+margin_right = 15.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 0
+text = "24"
+align = 1
 
 [node name="slot19" type="TextureButton" parent="HUD/inventario/grid"]
 margin_left = 111.0
@@ -1795,7 +2077,18 @@ margin_top = 74.0
 margin_right = 143.0
 margin_bottom = 106.0
 rect_min_size = Vector2( 32, 32 )
+toggle_mode = true
 texture_normal = ExtResource( 23 )
+script = ExtResource( 27 )
+
+[node name="qtd" type="Label" parent="HUD/inventario/grid/slot19"]
+margin_right = 15.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 0
+text = "24"
+align = 1
 
 [node name="slot20" type="TextureButton" parent="HUD/inventario/grid"]
 margin_left = 148.0
@@ -1803,7 +2096,18 @@ margin_top = 74.0
 margin_right = 180.0
 margin_bottom = 106.0
 rect_min_size = Vector2( 32, 32 )
+toggle_mode = true
 texture_normal = ExtResource( 23 )
+script = ExtResource( 27 )
+
+[node name="qtd" type="Label" parent="HUD/inventario/grid/slot20"]
+margin_right = 15.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 0
+text = "24"
+align = 1
 
 [node name="slot21" type="TextureButton" parent="HUD/inventario/grid"]
 margin_left = 185.0
@@ -1811,7 +2115,18 @@ margin_top = 74.0
 margin_right = 217.0
 margin_bottom = 106.0
 rect_min_size = Vector2( 32, 32 )
+toggle_mode = true
 texture_normal = ExtResource( 23 )
+script = ExtResource( 27 )
+
+[node name="qtd" type="Label" parent="HUD/inventario/grid/slot21"]
+margin_right = 15.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 0
+text = "24"
+align = 1
 
 [node name="slot22" type="TextureButton" parent="HUD/inventario/grid"]
 margin_left = 222.0
@@ -1819,7 +2134,18 @@ margin_top = 74.0
 margin_right = 254.0
 margin_bottom = 106.0
 rect_min_size = Vector2( 32, 32 )
+toggle_mode = true
 texture_normal = ExtResource( 23 )
+script = ExtResource( 27 )
+
+[node name="qtd" type="Label" parent="HUD/inventario/grid/slot22"]
+margin_right = 15.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 0
+text = "24"
+align = 1
 
 [node name="slot23" type="TextureButton" parent="HUD/inventario/grid"]
 margin_left = 259.0
@@ -1827,4 +2153,15 @@ margin_top = 74.0
 margin_right = 291.0
 margin_bottom = 106.0
 rect_min_size = Vector2( 32, 32 )
+toggle_mode = true
 texture_normal = ExtResource( 23 )
+script = ExtResource( 27 )
+
+[node name="qtd" type="Label" parent="HUD/inventario/grid/slot23"]
+margin_right = 15.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 0
+text = "24"
+align = 1
