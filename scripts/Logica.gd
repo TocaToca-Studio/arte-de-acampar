@@ -27,6 +27,7 @@ export (NodePath) var path_hud_inventario
 onready var hud_inventario=get_node(path_hud_inventario)
 
 
+
 ##########################INVENTARIO####################################
 
 const NUMERO_DE_SLOTS = 4 + 24 
@@ -70,7 +71,9 @@ func remove_item(item:String,quantidade : int = 999):
 	inventario[i]["quantidade"]-=quantidade
 	if inventario[i]["quantidade"]<=0: inventario.erase(i)
 	
-
+func inv_usa_item(indice):
+	remove_item(inventario[str(indice)]["item"],1)
+	
 
 func adiciona_coletavel(item:Coletavel):
 	adiciona_item(item.codigo_item,item.quantidade)

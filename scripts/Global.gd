@@ -125,7 +125,7 @@ const ITENS = {
 	"galho" : {
 		"nome": "Galho de Árvore",
 		"is_coletavel":true,
-		"is_ferramenta":true
+		"is_equipavel":true
 	},
 	"rocha" : {
 		"nome": "Rocha rígida",
@@ -150,7 +150,7 @@ const ITENS = {
 	"osso" : {
 		"nome": "Osso de animal",
 		"is_coletavel":true,
-		"is_ferramenta":true
+		"is_equipavel":true
 	},
 	"cranio" : {
 		"nome": "Crânio de animal",
@@ -187,12 +187,12 @@ const ITENS = {
 	"dente" : {
 		"nome": "Dente de sabre",
 		"is_coletavel":true,
-		"is_ferramenta": true
+		"is_equipavel": true
 	},
 	"bambu" : {
 		"nome": "Bambu",
 		"is_coletavel":true,
-		"is_ferramenta" :true
+		"is_equipavel" :true
 	},
 	"planta_venenosa" : {
 		"nome": "Planta Venenosa",
@@ -239,7 +239,7 @@ const ITENS = {
 	"rede" : { 
 		"nome": "Rede",
 		"is_construtivel":true,
-		"is_ferramenta" : true
+		"is_equipavel" : true
 	},
 	
 	# FERRAMENTAS 
@@ -250,47 +250,47 @@ const ITENS = {
 	},
 	"lanterna" : {
 		"nome":"Lanterna",
-		"is_ferramenta": true,
+		"is_equipavel": true,
 		"icone": [9,10]
 	},
 	"faca" : { 
 		"nome": "Faca",
-		"is_ferramenta": true,
+		"is_equipavel": true,
 		"icone": [6,5]
 	}, 
 	"tocha" : {
 		"nome": "Tocha",
 		"is_construtivel":true,
-		"is_ferramenta":true
+		"is_equipavel":true
 	},
 	"marreta" : {
 		"nome": "Marretinha",
 		"is_construtivel":true,
-		"is_ferramenta":true
+		"is_equipavel":true
 	},
 	"machado" : {
 		"nome": "Machadinha",
 		"is_construtivel":true,
-		"is_ferramenta":true
+		"is_equipavel":true
 	},
 	"estaca": {
 		"nome":"Estaca",
 		"is_construtivel":true,
-		"is_ferramenta":true 
+		"is_equipavel":true 
 	},
 	"pederneira" : {
 		"nome": "Pederneira",
-		"is_ferramenta": true
+		"is_equipavel": true
 	},
 	"isca" : {
 		"nome": "Isca de peixe",
 		"is_construtivel":true,
-		"is_ferramenta":true 
+		"is_equipavel":true 
 	},
 	"vara" : {
 		"nome": "Vara de pesca",
 		"is_construtivel":true,
-		"is_ferramenta":true
+		"is_equipavel":true
 	},
 	# ALIMENTOS EM GERAL  
 	"fruta" : {
