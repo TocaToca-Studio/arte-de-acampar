@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "KinematicBody",
+"class": "Animal",
+"language": "GDScript",
+"path": "res://scripts/gameplay/Animal.gd"
+}, {
+"base": "KinematicBody",
 "class": "Coletavel",
 "language": "GDScript",
 "path": "res://scripts/gameplay/Coletavel.gd"
@@ -25,6 +30,7 @@ _global_script_classes=[ {
 "path": "res://scripts/gameplay/Personagem.gd"
 } ]
 _global_script_class_icons={
+"Animal": "",
 "Coletavel": "",
 "HUD": "",
 "Personagem": ""
@@ -81,6 +87,7 @@ abre_inventario={
 [physics]
 
 common/enable_pause_aware_picking=true
+3d/physics_engine="GodotPhysics"
 
 [rendering]
 
