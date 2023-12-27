@@ -20,11 +20,21 @@ func pular():
  
 var pulou_andando=false
 
- 
-
-
+var tempo_vivo=0.0
 
 func _physics_process(delta): 
+	tempo_vivo+=delta;
+
+	var dir=Vector3.ZERO
+
+	# da um pulo a cada 10 segundos se estiver andando
+	if int(tempo_vivo*1000.0)%10000==0 and andando: pular()
+
+		# a cada 5 segundos decide se vai continuar andadno
+	if int(tempo_vivo*4000.0)%5000==0: 
+		andando=rand_range(0,1)<0.3;
+ 
+	
 	#gravity
 	gravity_speed -= Global.GRAVIDADE * delta 
 	gravity_speed=clamp(gravity_speed,-50,5)
@@ -41,7 +51,7 @@ func _physics_process(delta):
 	
 	var mov=0
 	if no_chao:
-		if andando:mov=velocidade
+		if andando: mov=velocidade
 	else:
 		if pulou_andando: mov=velocidade
 		

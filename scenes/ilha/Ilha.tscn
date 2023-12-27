@@ -2286,7 +2286,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.39286, 2.28736 )
 script = ExtResource( 32 )
 
 [node name="CSGMesh" type="CSGMesh" parent="Cachorro"]
-transform = Transform( 0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0, 0 )
+transform = Transform( -0.03, 0, -2.62268e-09, 0, 0.03, 0, 2.62268e-09, 0, -0.03, 0, 0, 0 )
 calculate_tangents = false
 mesh = ExtResource( 31 )
 
@@ -2299,5 +2299,21 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15134, 0 )
 enabled = true
 cast_to = Vector3( 0, -0.5, 0 )
 debug_shape_custom_color = Color( 1, 0, 0, 1 )
+
+[node name="label" type="Spatial" parent="Cachorro"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0 )
+
+[node name="nome" type="Label3D" parent="Cachorro/label"]
+pixel_size = 0.012
+billboard = 1
+text = "Cachorro bravo"
+font = ExtResource( 15 )
+
+[node name="vida" type="Label3D" parent="Cachorro/label"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.270601, 0 )
+pixel_size = 0.008
+billboard = 1
+text = "vida: 100%"
+font = ExtResource( 15 )
 
 [connection signal="pressed" from="HUD/superior/botaoInventario" to="HUD/inventario" method="abre_fecha"]
