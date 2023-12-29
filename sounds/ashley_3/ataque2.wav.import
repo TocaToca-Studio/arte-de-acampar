@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ataque2.wav-9018a2281bd3a0e314a0ddf2e855a770.sample"
+
+[deps]
+
+source_file="res://sounds/ashley_3/ataque2.wav"
+dest_files=[ "res://.import/ataque2.wav-9018a2281bd3a0e314a0ddf2e855a770.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

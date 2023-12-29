@@ -121,6 +121,11 @@ func _carregar_cena(path):
 	
 
 const ITENS = {
+	"punho": {
+		"nome":"Punho",
+		"is_equipavel":true,
+		"dano":3,
+	},
 	# itens coletáveis
 	"galho" : {
 		"nome": "Galho de Árvore",
@@ -130,6 +135,7 @@ const ITENS = {
 	"rocha" : {
 		"nome": "Rocha rígida",
 		"is_coletavel":true, 
+		"icone":[1,17]
 	},
 	"pena" : {
 		"nome": "Pena de ave",
@@ -150,7 +156,9 @@ const ITENS = {
 	"osso" : {
 		"nome": "Osso de animal",
 		"is_coletavel":true,
-		"is_equipavel":true
+		"is_equipavel":true,
+		"dano":4,
+		"icone":[9,17]
 	},
 	"cranio" : {
 		"nome": "Crânio de animal",
@@ -174,7 +182,8 @@ const ITENS = {
 	},
 	"couro" : {
 		"nome": "Couro animal",
-		"is_coletavel":true
+		"is_coletavel":true, 
+		"icone":[8,17]
 	},
 	"sementes" : {
 		"nome": "Sementes",
@@ -251,46 +260,55 @@ const ITENS = {
 	"lanterna" : {
 		"nome":"Lanterna",
 		"is_equipavel": true,
-		"icone": [9,10]
+		"icone": [9,10],
+		"dano":8
 	},
 	"faca" : { 
 		"nome": "Faca",
 		"is_equipavel": true,
-		"icone": [6,5]
+		"icone": [6,5],
+		"dano":12
 	}, 
 	"tocha" : {
 		"nome": "Tocha",
 		"is_construtivel":true,
-		"is_equipavel":true
+		"is_equipavel":true,
+		"dano":8
 	},
 	"marreta" : {
 		"nome": "Marretinha",
 		"is_construtivel":true,
-		"is_equipavel":true
+		"is_equipavel":true,
+		"dano":13
 	},
 	"machado" : {
 		"nome": "Machadinha",
 		"is_construtivel":true,
-		"is_equipavel":true
+		"is_equipavel":true,
+		"dano":15
 	},
 	"estaca": {
 		"nome":"Estaca",
 		"is_construtivel":true,
-		"is_equipavel":true 
+		"is_equipavel":true,
+		"dano":6
 	},
 	"pederneira" : {
 		"nome": "Pederneira",
-		"is_equipavel": true
+		"is_equipavel": true,
+		"dano" : 3
 	},
 	"isca" : {
 		"nome": "Isca de peixe",
 		"is_construtivel":true,
-		"is_equipavel":true 
+		"is_equipavel":true ,
+		"dano" : 1
 	},
 	"vara" : {
 		"nome": "Vara de pesca",
 		"is_construtivel":true,
-		"is_equipavel":true
+		"is_equipavel":true ,
+		"dano" : 6
 	},
 	# ALIMENTOS EM GERAL  
 	"fruta" : {
@@ -304,7 +322,8 @@ const ITENS = {
 	}, 
 	"carne" : {
 		"nome": "Carne",
-		"is_comestivel":true
+		"is_comestivel":true,
+		"icone":[2,15]
 	}, 
 	
 	## MEU SONHO É INSERIR ARCO E FLEXA NESSE JOGO

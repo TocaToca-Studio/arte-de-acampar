@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ventania.wav-2c77e0c2174887cdeb6c0a5f447aef3a.sample"
+
+[deps]
+
+source_file="res://sounds/ashley_3/ventania.wav"
+dest_files=[ "res://.import/ventania.wav-2c77e0c2174887cdeb6c0a5f447aef3a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/gemido.wav-854e9e5ff1c89ee5ffbfa663dcaa4a8a.sample"
+
+[deps]
+
+source_file="res://sounds/ashley_3/gemido.wav"
+dest_files=[ "res://.import/gemido.wav-854e9e5ff1c89ee5ffbfa663dcaa4a8a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

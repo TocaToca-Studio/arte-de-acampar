@@ -26,62 +26,28 @@ export (float) var esforco=0.0
 export (NodePath) var path_hud_inventario
 onready var hud_inventario=get_node(path_hud_inventario)
 
+export (NodePath) var personagem_path
+onready var personagem=get_node(personagem_path)
 
+export (NodePath) var path_hud 
+onready var hud=get_node(path_hud)
 
-##########################INVENTARIO####################################
+# o personagem chama essa função aqui.
+func recebe_dano(dano:int):
+	print("tomou pau:"+str(dano))
+	saude-=float(dano)/100.0;
+	hud.show_blood();
+	#personagem.recebe_dano(dano)
 
-const NUMERO_DE_SLOTS = 4 + 24 
-# os primeiros  4 itens são a barra rapida
-var inventario={}
-
-func inv_obtem_posicao_item(item:String):
-	for i in inventario:
-		if inventario[str(i)].item==item: return str(i) 
-	return null
+func ataca(animal):
+	var dano=2;
+	var item_equipado=hud_inventario.get_item_equipado();
+	if "dano" in item_equipado:	dano=item_equipado["dano"];
 	
-func inv_obtem_posicao_livre():
-	for i in range(NUMERO_DE_SLOTS):
-		if not inventario.has(str(i)): return str(i)
-	return null
+	print("atacou animal e atingiu: "+str(dano))
+	personagem.ataca(animal,dano)
 
-func adiciona_item(item:String,quantidade : int = 1):
-	var i = inv_obtem_posicao_item(item)
-	if i==null:
-		inventario[inv_obtem_posicao_livre()]={"item":item,"quantidade":quantidade}
-	else:
-		inventario[i]["quantidade"]+=quantidade
 
-func inv_move_slot(origem,destino):
-	if not (str(origem) in inventario):
-		print("ERRO ao mover slot, slot origem não existe.")
-		return
-	
-	if str(destino) in inventario:
-		var bkp_destino=inventario[str(destino)]
-		inventario[str(destino)]=inventario[str(origem)]
-		inventario[str(origem)]=bkp_destino
-	else: 
-		inventario[str(destino)]=inventario[str(origem)]
-		inventario.erase(str(origem))
-
-func remove_item(item:String,quantidade : int = 999):
-	var i = inv_obtem_posicao_item(item)
-	if i==null: return true
-	
-	inventario[i]["quantidade"]-=quantidade
-	if inventario[i]["quantidade"]<=0: inventario.erase(i)
-	
-func inv_usa_item(indice):
-	remove_item(inventario[str(indice)]["item"],1)
-	
-
-func adiciona_coletavel(item:Coletavel):
-	adiciona_item(item.codigo_item,item.quantidade)
-	
-	item.queue_free()
-	hud_inventario.atualiza()
-
-####################################
 func esforcar(fat):
 	stamina-=(1/fator_stamina)*fat
 
@@ -92,8 +58,9 @@ func is_cansado():
 func _ready():
 	segundosRestantes=Global.tempo_de_jogo*60
 	## carrega inventario de acordo com a dificuldade
-	inventario= Global.INVENTARIOS[Global.dificuldade]
-	#hud_inventario.atualiza()
+	hud_inventario=get_node(path_hud_inventario)
+	hud_inventario.inventario= Global.INVENTARIOS[Global.dificuldade]
+	hud_inventario.atualiza()
 	
 func atualiza_relogio():
 	var minutos_totais=DIAS_VIRTUAIS*24*60
@@ -130,6 +97,14 @@ func _process(delta):
 			Global.gameover()
 			pass
 	
-	
+
+
+func instancia_coletavel(codigo_item:String,quantidade:int,posicao:Vector3):
+	var prefab_coletavel = preload("res://prefabs/Coletavel.tscn").instance()
+	get_node("..").add_child(prefab_coletavel)
+	prefab_coletavel.translation=posicao
+	prefab_coletavel.set_item(codigo_item,quantidade)
+
+
 	
 	

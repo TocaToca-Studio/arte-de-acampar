@@ -17,7 +17,7 @@ export(float,0.1,1.0) var sensitivity_y = 0.4
 export (NodePath) var path_detector
 onready var detector=get_node(path_detector)
 
-var itens_detectados=[]
+var coletaveis_detectados=[]
 var mouse_motion = Vector2() 
  
 onready var eixoX=$offset/EixoX
@@ -56,16 +56,35 @@ func _process(delta):
 	if(alice.andando):
 		alice.transform=alice.transform.interpolate_with(transform,delta*velocidade*5)
 	 
-	var _itens_detectados=[]
-
-	for corpo in detector.get_overlapping_bodies():
-		if corpo is Coletavel: _itens_detectados.append(corpo)
 	
-	itens_detectados=_itens_detectados
-	if itens_detectados.size()>0:
-		hud.set_acao("Pressione F para adicionar o item ao seu inventário","coletavel")
-	else: hud.limpa_acao("coletavel")
+	var coletavel_detectado=null
+	var animal_detectado=null
 
-	if Input.is_key_pressed(KEY_F)  and capturando_movimento():
-		for item in itens_detectados: 
-			logica.adiciona_coletavel(item)
+	var ocupado=false
+	ocupado=logica.personagem.atacando ;
+
+	#detecta corpos em movimentos se o personagem nao estiver ocupado
+	if not ocupado:
+		for corpo in detector.get_overlapping_bodies():
+			if corpo is Coletavel: coletavel_detectado=corpo
+			if corpo is Animal and  corpo.vivo : animal_detectado=corpo
+	
+	if coletavel_detectado is Coletavel:
+		var item=coletavel_detectado.get_item()
+		hud.set_acao("Pressione F para pegar "+item["nome"]+"","coletavel")
+	else:
+		hud.limpa_acao("coletavel")
+		
+	if animal_detectado is Animal and not logica.personagem.andando: 
+		hud.set_acao("Pressione F para atacar "+animal_detectado.nome+"","animal")
+	else:
+		hud.limpa_acao("animal")
+		 
+
+	if Input.is_key_pressed(KEY_F)  and capturando_movimento() and not ocupado: 
+		if coletavel_detectado is Coletavel:
+			logica.hud_inventario.adiciona_coletavel(coletavel_detectado)
+			hud.limpa_acao("animal")
+		if animal_detectado is Animal:
+			logica.ataca(animal_detectado) 
+			hud.limpa_acao("coletavel")

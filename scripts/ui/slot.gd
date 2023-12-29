@@ -25,6 +25,7 @@ func redesenha():
 		qtd.set_text("")
 		set_normal_texture(hud.get_icone_vazio(hud.TipoIcone.INVENTARIO))
 		return
+		
 	var item=Global.ITENS[item_inventario["item"]]
 	var text=str(item_inventario["quantidade"]) #+"x "+item["nome"]
 	#if item_inventario['quantidade']==1 : text=""
@@ -34,11 +35,7 @@ func redesenha():
 	var tipoIcone=hud.TipoIcone.INVENTARIO 
 	if pressed:
 		tipoIcone=hud.TipoIcone.INVENTARIO_SELECIONADO 
-
-	if item.has("icone"):
-		set_normal_texture(hud.get_icone(item["icone"][0],item["icone"][1],tipoIcone))
-	else:
-		set_normal_texture(hud.get_icone_generico(tipoIcone))
+	set_normal_texture(hud.get_item_icone(item_inventario["item"],tipoIcone)) 
 
 func atualiza_item(item_inv):
 	item_inventario=item_inv

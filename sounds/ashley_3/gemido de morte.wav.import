@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/gemido de morte.wav-d23d829a0020b6797f5e8728dc2173f3.sample"
+
+[deps]
+
+source_file="res://sounds/ashley_3/gemido de morte.wav"
+dest_files=[ "res://.import/gemido de morte.wav-d23d829a0020b6797f5e8728dc2173f3.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
