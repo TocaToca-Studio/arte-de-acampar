@@ -39,13 +39,14 @@ func recebe_dano(dano:int):
 	hud.show_blood();
 	#personagem.recebe_dano(dano)
 
-func ataca(animal):
-	var dano=2;
-	var item_equipado=hud_inventario.get_item_equipado();
-	if "dano" in item_equipado:	dano=item_equipado["dano"];
-	
-	print("atacou animal e atingiu: "+str(dano))
-	personagem.ataca(animal,dano)
+func ataca(alvo):
+	if (alvo is Destrutivel) or (alvo is Animal):
+		var dano=2;
+		var item_equipado=hud_inventario.get_item_equipado();
+		if "dano" in item_equipado:	dano=item_equipado["dano"];
+		
+		print("atacou "+alvo.nome+" e atingiu: "+str(dano))
+		personagem.ataca(alvo,dano)
 
 
 func esforcar(fat):

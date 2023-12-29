@@ -26,7 +26,7 @@ export(Array, Resource) var sons_recebendo_dano = []
 export(Array, Resource) var sons_atacando = [] 
 
 
-var animal_atacado=null
+var alvo_atacado=null
 var atacando=false;
 var ataque_timeout=3.0;
 
@@ -54,14 +54,14 @@ func recebe_dano(dano:int):
 	logica.recebe_dano(dano)
 	pass
 
-func ataca(animal,dano:int): 
+func ataca(alvo,dano:int): 
 	ataque_timeout=1.0;
 	atacando=true
-	animal_atacado=animal
-	animal.recebe_dano(dano)
-	# interpola a direção ate mirando no animal que esta atacando
+	alvo_atacado=alvo
+	alvo.recebe_dano(dano)
+	# interpola a direção ate mirando no alvo que esta atacando
 	var self_pos=global_transform.origin
-	var dest_pos=animal_atacado.global_transform.origin
+	var dest_pos=alvo_atacado.global_transform.origin
 	var _dir=dest_pos-self_pos
 	#removi a interpolacao kkk
 	rotation.y = lerp_angle(rotation.y, atan2(-_dir.x, -_dir.z), 1) #delta * 20

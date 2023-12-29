@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=2]
+[gd_scene load_steps=79 format=2]
 
 [ext_resource path="res://texturas/natureza/Texture1.png" type="Texture" id=1]
 [ext_resource path="res://models/personagens/alice/alice.tscn" type="PackedScene" id=2]
@@ -48,6 +48,7 @@
 [ext_resource path="res://sounds/ashley_3/ventania.wav" type="AudioStream" id=46]
 [ext_resource path="res://scenes/menu/fonte_botoes.tres" type="DynamicFont" id=47]
 [ext_resource path="res://prefabs/Coletavel.tscn" type="PackedScene" id=48]
+[ext_resource path="res://scripts/gameplay/Destrutivel.gd" type="Script" id=49]
 
 [sub_resource type="SphereShape" id=10]
 radius = 0.4
@@ -1735,43 +1736,64 @@ custom_constants/shadow_offset_x = 0
 text = "24"
 align = 1
 
-[node name="Spatial" type="Spatial" parent="."]
-
-[node name="ArvoreDebug" type="RigidBody" parent="Spatial"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.63008, 7.22631 )
+[node name="ArvoreDebug" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1778, 7.22631 )
+mode = 1
 mass = 461.04
 physics_material_override = SubResource( 28 )
 can_sleep = false
 angular_damp = 0.202
+script = ExtResource( 49 )
 
-[node name="tronco" type="CollisionShape" parent="Spatial/ArvoreDebug"]
+[node name="tronco" type="CollisionShape" parent="ArvoreDebug"]
 transform = Transform( 1.40792, 0, 0, 0, -5.47927e-08, -1.41344, 0, 1.25351, -6.17835e-08, 0, 2.49499, 0 )
 shape = SubResource( 24 )
 
-[node name="CSGCylinder" type="CSGCylinder" parent="Spatial/ArvoreDebug/tronco"]
+[node name="CSGCylinder" type="CSGCylinder" parent="ArvoreDebug/tronco"]
 transform = Transform( 1.12607, 0, 0, 0, -6.38912e-08, 1.13526, 0, -1.46166, -4.96238e-08, 0, 0, -0.190438 )
 radius = 0.4
 height = 3.0
 cone = true
 material = SubResource( 25 )
 
-[node name="folhagem" type="CollisionShape" parent="Spatial/ArvoreDebug"]
+[node name="folhagem" type="CollisionShape" parent="ArvoreDebug"]
 transform = Transform( 1.49523, 0, 0, 0, 1.51411, 0, 0, 0, 1.47815, 0, 5.43237, 0 )
 shape = SubResource( 26 )
 
-[node name="CSGSphere" type="CSGSphere" parent="Spatial/ArvoreDebug/folhagem"]
+[node name="CSGSphere" type="CSGSphere" parent="ArvoreDebug/folhagem"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28491, 0 )
 radius = 2.989
 radial_segments = 5
 rings = 4
 material = SubResource( 27 )
 
-[node name="CSGSphere2" type="CSGSphere" parent="Spatial/ArvoreDebug/folhagem"]
+[node name="CSGSphere2" type="CSGSphere" parent="ArvoreDebug/folhagem"]
 transform = Transform( 0.530186, 0, 0.847882, 0, 1, 0, -0.847882, 0, 0.530186, 0, 1.28491, 0 )
 radius = 2.989
 radial_segments = 5
 rings = 4
 material = SubResource( 27 )
+
+[node name="label" type="Spatial" parent="ArvoreDebug"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0 )
+visible = false
+
+[node name="nome" type="Label3D" parent="ArvoreDebug/label"]
+pixel_size = 0.012
+billboard = 1
+no_depth_test = true
+text = "Cachorro bravo"
+font = ExtResource( 15 )
+
+[node name="saude" type="Label3D" parent="ArvoreDebug/label"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.270601, 0 )
+pixel_size = 0.008
+billboard = 1
+no_depth_test = true
+text = "vida: 100%"
+font = ExtResource( 15 )
+
+[node name="Spatial" type="Spatial" parent="."]
 
 [node name="ArvoreDebug23" parent="Spatial" instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.433223, 17.167 )

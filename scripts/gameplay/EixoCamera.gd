@@ -58,6 +58,7 @@ func _process(delta):
 	 
 	
 	var coletavel_detectado=null
+	var destrutivel_detectado=null
 	var animal_detectado=null
 
 	var ocupado=false
@@ -68,6 +69,7 @@ func _process(delta):
 		for corpo in detector.get_overlapping_bodies():
 			if corpo is Coletavel: coletavel_detectado=corpo
 			if corpo is Animal and  corpo.vivo : animal_detectado=corpo
+			if corpo is Destrutivel : destrutivel_detectado=corpo
 	
 	if coletavel_detectado is Coletavel:
 		var item=coletavel_detectado.get_item()
@@ -80,11 +82,19 @@ func _process(delta):
 	else:
 		hud.limpa_acao("animal")
 		 
+	if (destrutivel_detectado is Destrutivel) and (not ocupado) and (not logica.personagem.andando) : 
+		hud.set_acao("Pressione F para atingir "+destrutivel_detectado.nome+"","destrutivel")
+	else:
+		hud.limpa_acao("destrutivel")
+			
 
 	if Input.is_key_pressed(KEY_F)  and capturando_movimento() and not ocupado: 
 		if coletavel_detectado is Coletavel:
 			logica.hud_inventario.adiciona_coletavel(coletavel_detectado)
 			hud.limpa_acao("animal")
-		if animal_detectado is Animal:
+		elif animal_detectado is Animal:
 			logica.ataca(animal_detectado) 
 			hud.limpa_acao("coletavel")
+		elif destrutivel_detectado is Destrutivel:
+			logica.ataca(destrutivel_detectado) 
+			hud.limpa_acao("destrutivel")

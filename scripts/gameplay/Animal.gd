@@ -35,8 +35,7 @@ func morre():
 	vivo=false;
 	andando=false;
 	pulando=false;
-	atacando=false
-	var player_speed = 0  
+	atacando=false 
 	saude=0 
 	redesenha()
 
@@ -69,7 +68,7 @@ func _physics_process(delta):
 			posicao.y+=2
 
 			logica.instancia_coletavel("carne",3,posicao)
-			posicao.z+1
+			posicao.z+=1
 			logica.instancia_coletavel("osso",2,posicao)
 			posicao.x-=2
 			logica.instancia_coletavel("couro",1,posicao)
@@ -80,8 +79,6 @@ func _physics_process(delta):
 		ataque_timeout-=delta;
 	else:
 		atacando=false;
-
-	
 
 	var ocupado=atacando || not vivo;
 	
