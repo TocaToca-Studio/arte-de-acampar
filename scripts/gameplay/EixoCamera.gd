@@ -82,7 +82,7 @@ func _process(delta):
 	else:
 		hud.limpa_acao("animal")
 		 
-	if (destrutivel_detectado is Destrutivel) and (not ocupado) and (not logica.personagem.andando) : 
+	if (destrutivel_detectado is Destrutivel) and (not ocupado) and (not logica.personagem.andando) and (not destrutivel_detectado.destruido) : 
 		hud.set_acao("Pressione F para atingir "+destrutivel_detectado.nome+"","destrutivel")
 	else:
 		hud.limpa_acao("destrutivel")

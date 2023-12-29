@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/choro1.wav-adcaf186f7522c403e9d8b5f6da844bc.sample"
+
+[deps]
+
+source_file="res://sounds/cachorro/choro1.wav"
+dest_files=[ "res://.import/choro1.wav-adcaf186f7522c403e9d8b5f6da844bc.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

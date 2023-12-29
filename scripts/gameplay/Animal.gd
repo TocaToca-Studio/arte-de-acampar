@@ -31,6 +31,7 @@ func redesenha():
  
 var morte_timeout=0;
 func morre():
+	toca_array(sons_morrendo)
 	morte_timeout=3.0
 	vivo=false;
 	andando=false;
@@ -162,6 +163,7 @@ func _physics_process(delta):
 	
 export(Array, Resource) var sons_recebendo_dano = [] 
 export(Array, Resource) var sons_atacando = [] 
+export(Array, Resource) var sons_morrendo = [] 
 
 func filtra_recursos_sonoros(recursos:Array):
 	var _arr=[];

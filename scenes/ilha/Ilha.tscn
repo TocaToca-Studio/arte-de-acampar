@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=2]
+[gd_scene load_steps=89 format=2]
 
 [ext_resource path="res://texturas/natureza/Texture1.png" type="Texture" id=1]
 [ext_resource path="res://models/personagens/alice/alice.tscn" type="PackedScene" id=2]
@@ -49,6 +49,16 @@
 [ext_resource path="res://scenes/menu/fonte_botoes.tres" type="DynamicFont" id=47]
 [ext_resource path="res://prefabs/Coletavel.tscn" type="PackedScene" id=48]
 [ext_resource path="res://scripts/gameplay/Destrutivel.gd" type="Script" id=49]
+[ext_resource path="res://sounds/effects/arvore/arvore_caindo.wav" type="AudioStream" id=50]
+[ext_resource path="res://sounds/cachorro/rosnado.wav" type="AudioStream" id=51]
+[ext_resource path="res://sounds/cachorro/latido.wav" type="AudioStream" id=52]
+[ext_resource path="res://sounds/effects/arvore/atingido.wav" type="AudioStream" id=53]
+[ext_resource path="res://sounds/effects/arvore/atingido2.wav" type="AudioStream" id=54]
+[ext_resource path="res://sounds/cachorro/rosnado2.wav" type="AudioStream" id=55]
+[ext_resource path="res://sounds/cachorro/choro1.wav" type="AudioStream" id=56]
+[ext_resource path="res://sounds/cachorro/choro2.wav" type="AudioStream" id=57]
+[ext_resource path="res://sounds/cachorro/grunido.wav" type="AudioStream" id=58]
+[ext_resource path="res://sounds/cachorro/atingido.wav" type="AudioStream" id=59]
 
 [sub_resource type="SphereShape" id=10]
 radius = 0.4
@@ -1744,6 +1754,8 @@ physics_material_override = SubResource( 28 )
 can_sleep = false
 angular_damp = 0.202
 script = ExtResource( 49 )
+sons_recebendo_dano = [ ExtResource( 54 ), ExtResource( 53 ) ]
+sons_sendo_destruido = [ ExtResource( 50 ) ]
 
 [node name="tronco" type="CollisionShape" parent="ArvoreDebug"]
 transform = Transform( 1.40792, 0, 0, 0, -5.47927e-08, -1.41344, 0, 1.25351, -6.17835e-08, 0, 2.49499, 0 )
@@ -1792,6 +1804,10 @@ billboard = 1
 no_depth_test = true
 text = "vida: 100%"
 font = ExtResource( 15 )
+
+[node name="voz" type="AudioStreamPlayer3D" parent="ArvoreDebug"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44725, -0.042273 )
+unit_db = -4.098
 
 [node name="Spatial" type="Spatial" parent="."]
 
@@ -2371,6 +2387,9 @@ collision_mask = 3
 script = ExtResource( 32 )
 nome = "Cachorro Bravo"
 node_logica = NodePath("../Logica")
+sons_recebendo_dano = [ ExtResource( 59 ), ExtResource( 58 ) ]
+sons_atacando = [ ExtResource( 52 ), ExtResource( 55 ), ExtResource( 51 ) ]
+sons_morrendo = [ ExtResource( 56 ), ExtResource( 57 ) ]
 
 [node name="CSGMesh" type="CSGMesh" parent="Cachorro"]
 transform = Transform( -0.03, 0, -2.62268e-09, 0, 0.03, 0, 2.62268e-09, 0, -0.03, 0, 0, 0 )
@@ -2408,5 +2427,9 @@ transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.459564, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Cachorro/Detector"]
 shape = SubResource( 11 )
+
+[node name="voz" type="AudioStreamPlayer3D" parent="Cachorro"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44725, -0.0422732 )
+unit_db = -4.098
 
 [connection signal="pressed" from="Logica/HUD/superior/botaoInventario" to="Logica/HUD/inventario" method="abre_fecha"]
