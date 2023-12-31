@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=2]
+[gd_scene load_steps=96 format=2]
 
 [ext_resource path="res://texturas/natureza/Texture1.png" type="Texture" id=1]
 [ext_resource path="res://models/personagens/alice/alice.tscn" type="PackedScene" id=2]
@@ -59,16 +59,35 @@
 [ext_resource path="res://sounds/cachorro/choro2.wav" type="AudioStream" id=57]
 [ext_resource path="res://sounds/cachorro/grunido.wav" type="AudioStream" id=58]
 [ext_resource path="res://sounds/cachorro/atingido.wav" type="AudioStream" id=59]
+[ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=60]
+[ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=61]
+[ext_resource path="res://scenes/ilha/terrain/data.hterrain" type="Resource" id=62]
+[ext_resource path="res://scenes/ilha/terrain/water_noise.tres" type="Texture" id=63]
 
 [sub_resource type="SphereShape" id=10]
 radius = 0.4
 
 [sub_resource type="BoxShape" id=1]
 
-[sub_resource type="SpatialMaterial" id=2]
-params_specular_mode = 4
-albedo_texture = ExtResource( 1 )
-uv1_scale = Vector3( 500, 500, 1 )
+[sub_resource type="OpenSimplexNoise" id=32]
+seed = 1
+octaves = 5
+lacunarity = 2.38
+
+[sub_resource type="NoiseTexture" id=33]
+width = 1024
+height = 1024
+as_normalmap = true
+noise = SubResource( 32 )
+
+[sub_resource type="SpatialMaterial" id=34]
+albedo_color = Color( 0, 0.172549, 0.462745, 1 )
+albedo_texture = ExtResource( 63 )
+normal_enabled = true
+normal_scale = 1.0
+normal_texture = SubResource( 33 )
+uv1_scale = Vector3( 5, 5, 5 )
+uv2_scale = Vector3( 5, 5, 5 )
 
 [sub_resource type="ArrayMesh" id=7]
 resource_name = "alice_animada_Alicemhx2Female1605"
@@ -520,6 +539,11 @@ uv1_offset = Vector3( 5, 0, 0 )
 [sub_resource type="BoxShape" id=29]
 extents = Vector3( 0.175046, 0.326038, 0.472699 )
 
+[sub_resource type="Resource" id=31]
+script = ExtResource( 60 )
+mode = 0
+textures = [ [  ], [  ] ]
+
 [node name="Ilha" type="Spatial"]
 
 [node name="coletaveis" type="Node" parent="."]
@@ -585,13 +609,15 @@ font = ExtResource( 47 )
 transform = Transform( 400, 0, 0, 0, 0.089, 0, 0, 0, 400, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.44115, 0 )
 shape = SubResource( 1 )
 
 [node name="CSGBox" type="CSGBox" parent="StaticBody"]
-material_override = SubResource( 2 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+material_override = SubResource( 34 )
 
 [node name="Alice" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9225, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.82152, 0 )
 velocidade = 12.0
 animacao_andando = "Alic09_01"
 animation_path = NodePath("alice_animada/AnimationPlayer")
@@ -1810,6 +1836,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44725, -0.042273 )
 unit_db = -4.098
 
 [node name="Spatial" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.6616, 0 )
 
 [node name="ArvoreDebug23" parent="Spatial" instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.433223, 17.167 )
@@ -1878,7 +1905,7 @@ transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 6
 transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 20.6914, 0.433223, 28.5522 )
 
 [node name="Spatial2" type="Spatial" parent="."]
-transform = Transform( -0.965099, 0, 0.261886, 0, 1, 0, -0.261886, 0, -0.965099, 0, 0, -29.4027 )
+transform = Transform( -0.965099, 0, 0.261886, 0, 1, 0, -0.261886, 0, -0.965099, 0, 10.6616, -29.4027 )
 
 [node name="ArvoreDebug" parent="Spatial2" instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.433223, 7.22631 )
@@ -1950,7 +1977,7 @@ transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 6
 transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 20.6914, 0.433223, 28.5522 )
 
 [node name="Spatial3" type="Spatial" parent="."]
-transform = Transform( -0.976728, 0, -0.21448, 0, 1, 0, 0.21448, 0, -0.976728, 84.2565, 0, -28.5108 )
+transform = Transform( -0.976728, 0, -0.21448, 0, 1, 0, 0.21448, 0, -0.976728, 84.2565, 10.6616, -28.5108 )
 
 [node name="ArvoreDebug" parent="Spatial3" instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.433223, 7.22631 )
@@ -2022,7 +2049,7 @@ transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 6
 transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 20.6914, 0.433223, 28.5522 )
 
 [node name="Spatial4" type="Spatial" parent="."]
-transform = Transform( 0.998809, 0, -0.0487975, 0, 1, 0, 0.0487975, 0, 0.998809, 90.5628, 0, 0.207666 )
+transform = Transform( 0.998809, 0, -0.0487975, 0, 1, 0, 0.0487975, 0, 0.998809, 90.5628, 10.6616, 0.207666 )
 
 [node name="ArvoreDebug" parent="Spatial4" instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.433223, 7.22631 )
@@ -2094,7 +2121,7 @@ transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 6
 transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 20.6914, 0.433223, 28.5522 )
 
 [node name="Spatial5" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 160.483 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.6616, 160.483 )
 
 [node name="ArvoreDebug" parent="Spatial5" instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.433223, 7.22631 )
@@ -2166,7 +2193,7 @@ transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 6
 transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 20.6914, 0.433223, 28.5522 )
 
 [node name="Spatial6" type="Spatial" parent="."]
-transform = Transform( -0.965099, 0, 0.261886, 0, 1, 0, -0.261886, 0, -0.965099, 0, 0, 131.081 )
+transform = Transform( -0.965099, 0, 0.261886, 0, 1, 0, -0.261886, 0, -0.965099, 0, 10.6616, 131.081 )
 
 [node name="ArvoreDebug" parent="Spatial6" instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.433223, 7.22631 )
@@ -2238,7 +2265,7 @@ transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 6
 transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 20.6914, 0.433223, 28.5522 )
 
 [node name="Spatial7" type="Spatial" parent="."]
-transform = Transform( -0.976728, 0, -0.21448, 0, 1, 0, 0.21448, 0, -0.976728, 84.2565, 0, 131.972 )
+transform = Transform( -0.976728, 0, -0.21448, 0, 1, 0, 0.21448, 0, -0.976728, 84.2565, 10.6616, 131.972 )
 
 [node name="ArvoreDebug" parent="Spatial7" instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.433223, 7.22631 )
@@ -2310,7 +2337,7 @@ transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 6
 transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 20.6914, 0.433223, 28.5522 )
 
 [node name="Spatial8" type="Spatial" parent="."]
-transform = Transform( 0.998809, 0, -0.0487975, 0, 1, 0, 0.0487975, 0, 0.998809, 90.5628, 0, 160.691 )
+transform = Transform( 0.998809, 0, -0.0487975, 0, 1, 0, 0.0487975, 0, 0.998809, 90.5628, 10.6616, 160.691 )
 
 [node name="ArvoreDebug" parent="Spatial8" instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.433223, 7.22631 )
@@ -2382,7 +2409,7 @@ transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 6
 transform = Transform( 0.715888, 0, 0.698215, 0, 1, 0, -0.698215, 0, 0.715888, 20.6914, 0.433223, 28.5522 )
 
 [node name="Cachorro" type="KinematicBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.39286, 2.28736 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.67051, 9.90223, 2.28736 )
 collision_mask = 3
 script = ExtResource( 32 )
 nome = "Cachorro Bravo"
@@ -2431,5 +2458,30 @@ shape = SubResource( 11 )
 [node name="voz" type="AudioStreamPlayer3D" parent="Cachorro"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44725, -0.0422732 )
 unit_db = -4.098
+
+[node name="HTerrain" type="Spatial" parent="."]
+script = ExtResource( 61 )
+lod_scale = 2.0
+map_scale = Vector3( 2, 2, 2 )
+centered = true
+_terrain_data = ExtResource( 62 )
+chunk_size = 32
+collision_enabled = true
+collision_layer = 1
+collision_mask = 1
+shader_type = "Classic4"
+custom_shader = null
+custom_globalmap_shader = null
+texture_set = SubResource( 31 )
+render_layers = 1
+shader_params/u_ground_uv_scale_per_texture = Plane( 20, 20, 20, 20 )
+shader_params/u_depth_blending = true
+shader_params/u_triplanar = false
+shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
+shader_params/u_globalmap_blend_start = null
+shader_params/u_globalmap_blend_distance = null
+shader_params/u_colormap_opacity_per_texture = Plane( 1, 1, 1, 1 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
 
 [connection signal="pressed" from="Logica/HUD/superior/botaoInventario" to="Logica/HUD/inventario" method="abre_fecha"]
